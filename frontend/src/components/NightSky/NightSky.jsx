@@ -58,7 +58,7 @@ useEffect(() => {
             shootingStar.remove();
     
             // Create a new shooting star
-            createShootingStar();
+            setTimeout(createShootingStar, Math.random() * 20000);
         });
     }
     
@@ -193,14 +193,14 @@ useEffect(() => {
     });
     }
 
-    function initializeShootingStars() {
-        for (let i = 0; i < 2; i++) { // Adjust the number of shooting stars as needed
-        createShootingStar();
-        }
-    }
+    // function initializeShootingStars() {
+    //     for (let i = 0; i < 2; i++) { // Adjust the number of shooting stars as needed
+    //     createShootingStar();
+    //     }
+    // }
 
     initializeStars();
-    initializeShootingStars();
+    setTimeout(createShootingStar, Math.random() * 20000);
     initializeConstellations();
 }, []); // Run the effect once on component mount
 
