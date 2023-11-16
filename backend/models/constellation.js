@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const profileImageBasePath = 'uploads/profileImages'
-const projectSchema = new mongoose.Schema({
+const constellationSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true 
@@ -16,5 +16,5 @@ const projectSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Project', projectSchema);
+module.exports = mongoose.model('Constellation', constellationSchema);
 module.exports.profileImageBasePath = profileImageBasePath;

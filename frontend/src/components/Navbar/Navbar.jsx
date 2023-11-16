@@ -13,12 +13,14 @@ function Navbar () {
   return (
     <div className='Navbar'>
        <div className='navbar-links_container'>
-        <Link to='/home' className='nav-links'>Home</Link>
-        <Link to='/login' className='nav-links'>Log In</Link>
-        <Link to='/about' className='nav-links'>About Us</Link>
-        <Link to='/contactus' className='nav-links'>Contact Us</Link>
+        {/* <div className='Navbar-title'> A MAP OF THE STARS </div> */}
+        <Link to='/home' className='Navbar-title'>A MAP OF THE STARS </Link>
+        
+        <Link to='/login' className='nav-links'>Login</Link>
+        <Link to='/about' className='nav-links'>About</Link>
+        {/* <Link to='/constellation/new' className='nav-links'>Create Constellation</Link> */}
         <div className='navbar-button'>
-        {button && <Link to="/register"><Button>Register here</Button></Link>}
+        {button && <Link to="register"><Button>register</Button></Link>}
 
       </div>
       </div>

@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 const port = process.env.PORT || 3001;
 
 //import the routers
-const projectRouter = require('./routes/projects') 
+const constellationRouter = require('./routes/constellations') 
 
 const uri = "mongodb+srv://Freddy:test123@cluster0.tunrfyo.mongodb.net/?retryWrites=true&w=majority";
 
@@ -31,7 +31,7 @@ db.once('open', () => console.log('Connected to Mongoose'));
 
 
 // set the app to use the imported routers
-app.use('', projectRouter);
+app.use('', constellationRouter);
 
 
 // Start the server

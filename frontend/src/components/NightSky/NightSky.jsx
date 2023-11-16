@@ -26,19 +26,24 @@ useEffect(() => {
     }
 
 
+
     function createShootingStar() {
         const shootingStar = document.createElement('div');
         shootingStar.className = 'shooting-star';
-    
-        const duration = Math.random() * 1.5 + 0.5; // Random duration between 0.5 and 2 seconds
+
+
+        // Random duration between 0.5 and 2 seconds
+        const duration = Math.random() * 1.5 + 0.5; 
         shootingStar.style.animationDuration = `${duration}s`;
     
-        const randomSize = Math.random() * 2 + 2; // Random size between 2 and 4 pixels
+        // Random size between 2 and 4 pixels
+        const randomSize = Math.random() * 2 + 2; 
         shootingStar.style.width = `${randomSize}px`;
         shootingStar.style.height = `${randomSize}px`;
-    
-        shootingStar.style.top = `${Math.random() * 60 + 15}%`;
-        shootingStar.style.left = `${Math.random() * 60 + 10}%`;
+        
+        // Random position in smaller section of screen
+        shootingStar.style.top = `${Math.random() * 50 + 20}%`;
+        shootingStar.style.left = `${Math.random() * 50 + 10}%`;
     
         // Set a random rotation
         const rotation = Math.random() * 360;
@@ -163,11 +168,14 @@ useEffect(() => {
         constellationContainer.appendChild(constellation);
     };
 
+
+    
     function initializeStars() {
     for (let i = 0; i < 100; i++) {
         createStar();
     }
     }
+
 
     function initializeConstellations() {
     const constellations = [
@@ -193,14 +201,10 @@ useEffect(() => {
     });
     }
 
-    // function initializeShootingStars() {
-    //     for (let i = 0; i < 2; i++) { // Adjust the number of shooting stars as needed
-    //     createShootingStar();
-    //     }
-    // }
 
-    initializeStars();
+
     setTimeout(createShootingStar, Math.random() * 20000);
+    initializeStars();
     initializeConstellations();
 }, []); // Run the effect once on component mount
 
