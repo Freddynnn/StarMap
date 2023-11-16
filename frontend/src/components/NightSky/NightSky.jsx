@@ -26,6 +26,44 @@ useEffect(() => {
     }
 
 
+    function createShootingStar() {
+        const shootingStar = document.createElement('div');
+        shootingStar.className = 'shooting-star';
+    
+        const duration = Math.random() * 1.5 + 0.5; // Random duration between 0.5 and 2 seconds
+        shootingStar.style.animationDuration = `${duration}s`;
+    
+        const randomSize = Math.random() * 2 + 2; // Random size between 2 and 4 pixels
+        shootingStar.style.width = `${randomSize}px`;
+        shootingStar.style.height = `${randomSize}px`;
+    
+        shootingStar.style.top = `${Math.random() * 60 + 15}%`;
+        shootingStar.style.left = `${Math.random() * 60 + 10}%`;
+    
+        // Set a random rotation
+        const rotation = Math.random() * 360;
+        shootingStar.style.transform = `rotate(${rotation}deg)`;
+    
+        // Set a random translation
+        const distance = Math.random() * 50 + 200; // Adjust the range as needed
+        const angle = Math.random() * 360;
+        const translateX = Math.cos(angle) * distance;
+        const translateY = Math.sin(angle) * distance;
+        shootingStar.style.transform += ` translate(${translateX}px, ${translateY}px)`;
+    
+        constellationContainer.appendChild(shootingStar);
+    
+        shootingStar.addEventListener('animationiteration', () => {
+            // Remove the shooting star after the animation completes
+            shootingStar.remove();
+    
+            // Create a new shooting star
+            createShootingStar();
+        });
+    }
+    
+
+
     // create constellations from our coded list of star positions
     function createConstellation(constellationData) {
 
@@ -53,7 +91,7 @@ useEffect(() => {
             star.style.animationDelay = randomDelay;
 
             // Set the size and position of the constellation stars
-            const size = Math.random() * 4 + 5.5;
+            const size = Math.random() * 4 + 4;
             star.style.width = `${size}px`;
             star.style.height = `${size}px`;
             star.style.left = `${starPosition[0] * 10 + 30}%`;
@@ -62,14 +100,17 @@ useEffect(() => {
             constellation.appendChild(star);
         });
 
+        // full screen width:1707px, height 906px
+
         // set the default sizes and randomised positions 
-        constellation.style.top = `${(Math.random() * 50) + 10}%`;
-        constellation.style.left = `${(Math.random() * 50) + 10}%`;
-        constellation.style.width = '12%';
-        constellation.style.height = '25%';
+        constellation.style.width = '150px';
+        constellation.style.height = '180px';
+        constellation.style.top = `${(Math.random() * ((906)/2)) + 906/4 - 200}px`;
+        constellation.style.left = `${(Math.random() * ((1707)/2)) + 1707/4 - 100}px`;
 
         // growth of constellation on hover (in percentage)
         const hoverGrowth = 5;
+        
 
 
         // making constellation grow in size on mouse hover
@@ -86,10 +127,10 @@ useEffect(() => {
             const sizeChangeY = (newHeight - currentHeight) / 2;
 
             // Adjust the position to keep the center unchanged
-            constellation.style.width = `${newWidth}%`;
-            constellation.style.height = `${newHeight}%`;
-            constellation.style.top = `${currentTop - sizeChangeY}%`;
-            constellation.style.left = `${currentLeft - sizeChangeX}%`;
+            constellation.style.width = `${newWidth}px`;
+            constellation.style.height = `${newHeight}px`;
+            constellation.style.top = `${currentTop - sizeChangeY}px`;
+            constellation.style.left = `${currentLeft - sizeChangeX}px`;
 
             // Make the name visible on hover
             nameDisplay.style.opacity = 1; 
@@ -110,10 +151,10 @@ useEffect(() => {
             const sizeChangeY = (newHeight - currentHeight) / 2;
 
             // Adjust the position to keep the center unchanged
-            constellation.style.width = `${newWidth}%`;
-            constellation.style.height = `${newHeight}%`;
-            constellation.style.top = `${currentTop - sizeChangeY}%`;
-            constellation.style.left = `${currentLeft - sizeChangeX}%`;
+            constellation.style.width = `${newWidth}px`;
+            constellation.style.height = `${newHeight}px`;
+            constellation.style.top = `${currentTop - sizeChangeY}px`;
+            constellation.style.left = `${currentLeft - sizeChangeX}px`;
 
             // Hide the name on mouse leave
             nameDisplay.style.opacity = 0; 
@@ -130,18 +171,13 @@ useEffect(() => {
 
     function initializeConstellations() {
     const constellations = [
-        { name: 'Heart',
+        { name: 'AMOR AETERNUS',
         stars: [
-            [1.25, -0.1], [2.75, -0.1],
-            [0.3, 0.25], [3.7, 0.25],
-            [2, 0.5],
-            [0, 1], [4, 1],
-            [0.5, 1.7], [3.5, 1.7],
-            [1.25, 2.4], [2.75, 2.4],
-            [1.92, 3.1]
-        ]
+            [0.8, -0.25], [3.3, -0.5],[-0.4, -0.5], [4.5, -0.1], [2, 0.5],
+            [-0.7, 0.7], [4, 1.7], [0.5, 2.3], [3.35, 2.65], [1.8, 3.3]
+        ]   
         },
-        { name: "Jo's Pickaxe",
+        { name: "JOS PICKAXE",
         stars: [
             // top of pickaxe (left to right)
             [-0.3, -0.9], [1.7, -1.3], [4, -1], [5.6, 1.1], [5.2, 2.6],
@@ -157,7 +193,14 @@ useEffect(() => {
     });
     }
 
+    function initializeShootingStars() {
+        for (let i = 0; i < 2; i++) { // Adjust the number of shooting stars as needed
+        createShootingStar();
+        }
+    }
+
     initializeStars();
+    initializeShootingStars();
     initializeConstellations();
 }, []); // Run the effect once on component mount
 
