@@ -1,0 +1,38 @@
+
+/* custom button styling */
+
+.btn {
+    padding: 1rem 1rem;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    
+}
+
+.btn--primary {
+    background: var(--color-button);
+    color: var(--color-text);
+    font-family: var(--font-family);
+    border-color: black;
+    transition: all 0.3s ease-out;
+    opacity: 75%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn--outline {
+    background: var(--color-button);
+    color: var(--color-text);
+    font-family: var(--font-family);
+    border-color: transparent;
+}
+
+.btn--medium {
+    padding: 1rem 1rem;
+    font-size: 1.2rem;
+}
+
+
+.btn--large {
+    padding: 1rem 1rem;
+    font-size: 2rem;
+}

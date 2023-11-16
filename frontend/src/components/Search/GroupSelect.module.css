@@ -1,0 +1,71 @@
+.container {
+    position: relative;
+    background: white;
+    width: 40em;
+    min-height: 1.5em;
+    border: .05em solid #777;
+    display: flex;
+    align-items: center;
+    border-radius: .25em;
+    outline: none;
+}
+
+.container:focus {
+    border-color: hsl(200, 100%, 50%);
+}
+
+.value {
+    flex-grow: 1;
+}
+
+.clear-btn {
+    background: none;
+    color: #777;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1.25em;
+}
+
+.clear-btn:focus,           
+.clear-btn:hover {
+    color: #333;
+}
+
+
+
+.groups {
+    position: absolute;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    max-height: 15em;
+    overflow-y: auto;
+    border: .05em solid #777;
+    border-radius: 0.25em;
+    width: 100%;
+    left: 0;
+    top: calc(100% + .25em);
+    z-index: 999; 
+    display: none;
+    
+}
+.groups.show {
+    display: block;
+}
+
+
+.group {
+    padding: .25em .5em;
+    cursor: pointer;
+}
+
+.group.highlighted {
+    background-color: hsl(200, 100%, 50%);
+    color: white;
+}
+.group.selected {
+    background-color: hsl(200, 100%, 70%);
+}

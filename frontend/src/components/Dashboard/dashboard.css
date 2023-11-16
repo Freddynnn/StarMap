@@ -1,0 +1,42 @@
+h1 {
+    font-size: 5rem;
+    color: black;
+    font-family: var(--font-family);
+    font-weight: bold;
+    margin: 1rem;
+    margin-left: 10rem;
+    padding: 0.5rem;
+   
+}
+
+.dashboard {
+    /* background-image: url("../../assets/home_two.jpeg"); */
+    height: 50rem;
+    background-position: center;
+    background-size: cover;
+    
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    
+}
+
+
+.events-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 20px; /* Adjust as needed */
+    margin-left: 2rem;
+    margin-right: 10rem;
+}
+
+.events-table {
+    flex: 1; /* This makes the events tables flexible, taking up available space equally */
+}
+
+.button-container {
+    margin-left: auto;
+    margin-top: 20px; /* Adjust as needed */
+}
+  

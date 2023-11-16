@@ -1,0 +1,45 @@
+.info h1 {
+    font-size: 6rem;
+    color: black;
+    font-family: var(--font-family);
+    font-weight: bold;
+    margin: 1rem;
+    margin-bottom: 1px;
+    margin-left: 5rem;
+    /* padding: 0.5rem; */
+}
+
+.profile-container {
+    text-align: left;
+    margin-top: 2rem;
+}
+
+.info h2 {
+    font-size: 3rem;
+    color: black;
+    font-family: var(--font-family);
+    font-weight: bold;
+    margin: 1rem;
+    margin-left: 5rem;
+    padding: 0.5rem;
+
+}
+
+.info {
+    margin-bottom: 2rem;
+    height: 20rem;
+    justify-content: center; 
+}
+
+.edit {
+    margin-top: 15rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: left; 
+    flex: 1;
+    margin-left: 5rem;
+}
+
+.edit Button {
+    margin-right: 5rem;
+}

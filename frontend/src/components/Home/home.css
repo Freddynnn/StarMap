@@ -1,0 +1,78 @@
+.home {
+    /* background-image: url("../../assets/home_two.jpeg"); */
+    height: 50rem;
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.logo h1 {
+    text-align: center;
+    color: black;
+    /* font-family: var( --logo-font-family);
+    font-weight: lighter; */
+    font-style: italic;
+    font-size: 10rem;
+    text-align: center;    
+}
+
+
+
+
+.star {
+    position: absolute;
+    background-color: rgb(229, 221, 177);
+    border-radius: 50%;
+    
+    animation: shimmer 1.5s infinite alternate, shake 1s infinite alternate; /* Combine animations */
+}
+
+.constellation {
+    position: absolute;
+    width: 12%;
+    height: 25%;
+}
+
+.constellation-star {
+    position: absolute;
+    background-color: rgb(229, 221, 177);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    animation: shimmer 1.5s infinite alternate; /* Combine animations */
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+.constellation-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(19, 18, 43);
+    overflow: hidden;
+    /* cursor: pointer; */
+}
+
+@keyframes shimmer {
+    to {
+        transform: scale(1.3);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg); 
+    } 25% {
+        transform: translate(0.2px, 0.2px) rotate(45deg); 
+    } 50% {
+        transform: translate(-0.2px, -0.2px) rotate(-45deg); 
+    } 75% {
+        transform: translate(0.2px, -0.2px) rotate(90deg); 
+    }
+}
+  
+
+

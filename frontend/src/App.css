@@ -7,9 +7,11 @@
   pointer-events: none;
 }
 
+/* only sets rotation if user does not have preference of reduced motion on */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 30s linear;
+    /* animation: App-logo-rock 2s ease-in-out infinite;  */
   }
 }
 
@@ -34,5 +36,14 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes App-logo-rock {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(10deg); /* Adjust the angle for the rocking effect */
   }
 }
