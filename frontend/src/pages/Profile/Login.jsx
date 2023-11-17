@@ -20,7 +20,7 @@ function Login({ logIn }) {
 
     try {
       // Send a POST request to your login endpoint on your backend
-      const response = await axios.post('https://nexuspod-backend.onrender.com/login', payload);
+      const response = await axios.post('http://localhost:3001/login', payload);
 
       if (response.status === 200) {
         console.log('Authentication successful');

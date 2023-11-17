@@ -6,13 +6,15 @@ import React from 'react';
 import { useState } from "react";
 // import { Features, Header, Login, Register, Protected, Change, CalendarContainer, EventContainer, ContactContainer  } from './containers';
 
-import { Dashboard, Navbar, Layout, PriNavbar } from './components';
+
+
+import { Navbar, Layout, PriNavbar, Protected } from './components';
 
 // import {ContactsPage, NewContactForm, SingleContactPage, 
 //   EditEventForm, NewEventForm, SingleEventPage,
 //   GroupsPage, NewGroupForm, SingleGroupPage, , Profile, Home} from './pages';
 
-import {Home, About, ContactUs, Login, Register} from './pages'
+import {Home, Dashboard, About, ContactUs, Login, Register, Profile,  NewConstellation} from './pages'
 
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
@@ -61,7 +63,7 @@ const App = () => {
               <Route path="/register" element={<Register />} />
               
               
-              {/* <Route
+              <Route
                 path="/dashboard"
                 element={
                   <Protected isLoggedIn={isLoggedIn}>
@@ -69,6 +71,16 @@ const App = () => {
                   </Protected>
                 }
               />
+
+              <Route 
+                path="/constellation/new" 
+                element={
+                  <Protected isLoggedIn={isLoggedIn}>    
+                    <NewConstellation user={user} />
+                  </Protected>
+                } 
+              />
+
               <Route
                 path="/profile"
                 element={
@@ -77,14 +89,9 @@ const App = () => {
                   </Protected>
                 }
               />
-              <Route
-                path="/change"
-                element={
-                  <Protected isLoggedIn={isLoggedIn}>
-                    <Change />
-                  </Protected>
-                }
-              />
+
+
+              {/* 
 
               <Route
                 path="/contacts"
@@ -94,14 +101,7 @@ const App = () => {
               />
             
               
-              <Route 
-              path="/contacts/new" 
-              element={
-                <Protected isLoggedIn={isLoggedIn}>    
-                  <NewContactForm user={user} />
-                </Protected>
-                } 
-              />
+              
               <Route 
               path="/contacts/contact/:id" 
               element={
@@ -109,49 +109,8 @@ const App = () => {
                   <SingleContactPage />
                 </Protected>
                 } 
-              />
-
-              <Route
-                path="/calendar"
-                element={
-                  <Protected isLoggedIn={isLoggedIn}>
-                    <CalendarContainer user={user}/>
-                    
-                  </Protected>
-                }
-              />
-              <Route 
-              path="/events/new" 
-              element={
-                <NewEventForm user={user} />
-                } 
-              />
-              <Route 
-              path="/events/event/:id" 
-              element={
-                <SingleEventPage />
-                } 
-              />
-
-
-              <Route
-                path="/groups"
-                element={
-                  <GroupsPage />
-                }
-              />
-              <Route 
-              path="/groups/new" 
-              element={
-                <NewGroupForm />
-                } 
-              />
-              <Route 
-              path="/groups/:id" 
-              element={
-                <SingleGroupPage />
-                } 
               /> */}
+
 
             </Routes>            
           </div>

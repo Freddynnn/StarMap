@@ -8,15 +8,15 @@ const registerUser = async (req, res) => {
     try {
         const { username, password } = req.body;
 
-        // Validate input (e.g., check password length and complexity)
+        // Validate input (e.g. check password length and complexity)
         if (!username || !password) {
             return res.status(400).json({ error: 'Please fill in the  required fields' });
         }
 
         // Check if the username or email already exists
-        const existingUser = await User.findOne({ $or: [{ username }, { email }] });
+        const existingUser = await User.findOne({ $or: [{ username }] });
         if (existingUser) {
-            return res.status(400).json({ error: 'Username or email already exists. Please choose a different one.' });
+            return res.status(400).json({ error: 'Username already exists. Please choose a different one.' });
         }
 
         // If the username and email are available, hash the password and create/save the new user
@@ -118,10 +118,6 @@ const editUserByID = async (req, res) => {
         return res.status(500).json({ error: 'Internal Server Error' });
     }
 };
-
-
-
-
 
 module.exports = { 
     registerUser, 

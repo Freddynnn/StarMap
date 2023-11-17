@@ -1,11 +1,18 @@
 .App {
   text-align: center;
+  
+  overflow: auto;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
+.App-body{
+  overflow: auto;
+}
+
 
 /* only sets rotation if user does not have preference of reduced motion on */
 @media (prefers-reduced-motion: no-preference) {

@@ -13,6 +13,7 @@
     position: absolute;
     width: 220px;
     height: 440px;
+    cursor: pointer;
     /* border: 5px solid beige; 
     box-sizing: border-box;  */
   }
@@ -57,10 +58,10 @@ body {
 
 .constellation-container {
     position: absolute;
-    width: 905; /* Set a fixed width */
-    height: 1706; /* Set a fixed height */
+    width: 900; /* Set a fixed width */
+    height: 1700; /* Set a fixed height */
     background-color: rgb(14, 13, 31);
-    overflow: auto; /* Allow scrolling if content exceeds the container's size */
+    /* overflow: auto;  */
 }
 
 @keyframes shooting-star-animation {

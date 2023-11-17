@@ -1,13 +1,15 @@
 const mongoose = require('mongoose');
-const Constellation = require('../models/constellations'); // Assuming you have a constellations model
+const Constellation = require('../models/constellations');
 
 // function to list all Constellations
 const getAllConstellations = async (req, res) => {
+    const userID = req.params.userID;
+
     try {
-        const userConstellations = await Constellation.find();
+        const userConstellations = await Constellation.find({userID});
 
         if (!userConstellations || userConstellations.length === 0) {
-            return res.status(404).json({ error: 'No Constellations' });
+            return res.status(404).json({ error: `No Constellations for userID: ${userID}` });
         }
 
         return res.status(200).json(userConstellations);
@@ -16,6 +18,9 @@ const getAllConstellations = async (req, res) => {
         return res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
+
+
 
 // Function for rendering a specific Constellations page
 const getConstellationByID = async (req, res) => {
@@ -32,8 +37,8 @@ const getConstellationByID = async (req, res) => {
 
 // Function to add a new constellation to the database
 const createConstellation = async (req, res) => {
-    const { name, description, link } = req.body;
-    const newConstellation = new Constellation({ name, description, link });
+    const { name, description, stars, userID } = req.body;
+    const newConstellation = new Constellation({ name, description, stars, userID });
 
     // TODO: for images associated with constellations
     const fileName = req.file != null ? req.file.filename : null;

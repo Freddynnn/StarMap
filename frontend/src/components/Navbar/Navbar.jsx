@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import { Link, useNavigate } from 'react-router-dom';
 // import logo from '../../assets/nexus.png';
 import './Navbar.css';
@@ -9,7 +8,6 @@ import Button from '../Button/Button';
 function Navbar () {
 
   const [button, setButton] = useState(true);
-  const navigate = useNavigate(); 
   return (
     <div className='Navbar'>
        <div className='navbar-links_container'>
@@ -20,14 +18,11 @@ function Navbar () {
         <Link to='/about' className='nav-links'>About</Link>
         {/* <Link to='/constellation/new' className='nav-links'>Create Constellation</Link> */}
         <div className='navbar-button'>
-        {button && <Link to="register"><Button>register</Button></Link>}
+          {button && <Link to="register"><Button>SIGN UP</Button></Link>}
+        </div>
 
       </div>
-      </div>
-      
-      
     </div>
-    
   )
 }
 

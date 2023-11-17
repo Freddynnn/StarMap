@@ -12,16 +12,8 @@ export { default as Register } from './Profile/Register';
 // export { default as EditContact } from './Contacts/EditContact';
 
 // export { default as ContactsPage } from './Contacts/ContactsPage';
-// export { default as NewContactForm } from './Contacts/NewContactForm';
+export { default as NewConstellation } from './Constellation/NewConstellation';
 // export { default as SingleContactPage } from './Contacts/SingleContactPage';
-
-// export { default as EditEvent } from './Events/EditEvent';
-// export { default as NewEventForm } from './Events/NewEventForm';
-// export { default as SingleEventPage } from './Events/SingleEventPage';
-
-// export { default as GroupsPage } from './Groups/GroupsPage';
-// export { default as NewGroupForm } from './Groups/NewGroupForm';
-// export { default as SingleGroupPage } from './Groups/SingleGroupPage';
 
 
 

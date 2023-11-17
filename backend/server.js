@@ -2,11 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors')
 const app = express();
-const bodyParser = require('body-parser')
-const port = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 
 //import the routers
-const constellationRouter = require('./routes/constellations') 
+const constellationRouter = require('./routes/constellations')
+const loginRouter = require('./routes/login')
 
 const uri = "mongodb+srv://Freddy:test123@cluster0.tunrfyo.mongodb.net/?retryWrites=true&w=majority";
 
@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== 'production'){
   require('dotenv').config();
 }
 
-app.use(cors())
+app.use(cors());
 app.use(express.json())
 
 
@@ -32,9 +32,10 @@ db.once('open', () => console.log('Connected to Mongoose'));
 
 // set the app to use the imported routers
 app.use('', constellationRouter);
+app.use('', loginRouter);
 
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

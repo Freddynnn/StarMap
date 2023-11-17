@@ -7,10 +7,7 @@ import Button from '../../components/Button/Button';
 function Register({ logIn }) {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
+    
     username: '',
     password: '',
 
@@ -35,36 +32,11 @@ function Register({ logIn }) {
       });
     }
 
-    // required fields checks
-    if (name === 'firstName' && !value) {
-      setValidationErrors({
-        ...validationErrors,
-        firstName: 'First Name is required.',
-      });
-    }
-
-    // specific formatting checks
-    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-    if (name === 'email' && value && !emailRegex.test(value)) {
-      setValidationErrors({
-        ...validationErrors,
-        email: 'Invalid email address.',
-      });
-    }
-
     const passwordRegex = /^(?=.*\d)(?=.*[A-Z]).{5,}$/;
     if (name === 'password' && value && !passwordRegex.test(value)) {
       setValidationErrors({
         ...validationErrors,
         password: 'Password must contain at least 1 digit and 1 upper case letter',
-      });
-    }
-
-    const phoneRegex = /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
-    if (name === 'phone' && value && !phoneRegex.test(value)) {
-      setValidationErrors({
-        ...validationErrors,
-        phone: 'Invalid phone number format.',
       });
     }
   };
@@ -76,7 +48,7 @@ function Register({ logIn }) {
 
     try {
       console.log('Before Axios request');
-      const response = await axios.post('https://nexuspod-backend.onrender.com/register', formData);
+      const response = await axios.post('http://localhost:3001/register', formData);
       console.log('After Axios request', response);
 
       // successful registration
@@ -117,67 +89,6 @@ function Register({ logIn }) {
         </header>
 
         <form onSubmit={handleSubmit}>
-
-          
-
-          <label htmlFor="fname-input">
-            <span className='req-star'> * </span> 
-            First Name 
-            {validationErrors.firstName && (
-              <p className="error-message">{validationErrors.firstName}</p>
-            )}
-          </label>
-          <input
-            type="text"
-            name="firstName"
-            id="fname-input"
-            placeholder="First Name"
-            value={formData.firstName}
-            onChange={handleChange}
-          />
-          <label htmlFor="lname-input">Last Name</label>
-          <input
-            type="text"
-            name="lastName"
-            id="lname-input"
-            placeholder="Last Name"
-            value={formData.lastName}
-            onChange={handleChange}
-          />
-
-          
-          <label htmlFor="email-input">
-            <span className='req-star'> * </span> 
-            Email Address
-            {validationErrors.email && (
-              <p className="error-message">{validationErrors.email}</p>
-            )}
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email-input"
-            placeholder="Email Address"
-            value={formData.email}
-            onChange={handleChange}
-          />
-
-          <label htmlFor="phone-input">
-            Phone
-            {validationErrors.phone && (
-              <p className="error-message">{validationErrors.phone}</p>
-            )}
-          </label>
-          <input
-            maxLength="12"
-            minLength="10"
-            name="phone"
-            type="text"
-            id="phone"
-            placeholder="Phone"
-            value={formData.phone}
-            onChange={handleChange}
-          />
 
           
           <label htmlFor="user">
