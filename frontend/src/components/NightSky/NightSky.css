@@ -11,12 +11,10 @@
 /* Update the .constellation style */
 .constellation {
     position: absolute;
-    width: 220px;
-    height: 440px;
-    cursor: pointer;
+    /* cursor: pointer; */
     /* border: 5px solid beige; 
     box-sizing: border-box;  */
-  }
+}
 
 .constellation-star {
     position: absolute;
@@ -29,19 +27,37 @@
 
 .constellation-name {
     position: absolute;
-    top: 10%; /* Center the name vertically within the constellation */
-    left: 10%; /* Center the name horizontally within the constellation */
+    top: 10%; 
+    left: 10%; 
     transform: translate(-50%, -50%);
     font-family: var(--font-family);
-    font-size: 14px;
-    font-weight: bold;
-    color:blanchedalmond;
-    opacity: 0; /* Initially hide the name */
-    transition: opacity 0.3s ease; /* Add a smooth transition for opacity */
-  }
+    font-size: 16px;
+    font-weight: bolder;
+    color:beige;
+    width:100%;
+
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
 
 
-/* nightsky.css */
+.constellation-lines {
+    position: absolute;
+    top: 0%;
+    left:0%;
+    width: 100%;
+    height: 100%;
+
+    opacity: 0.2;
+    transition: opacity 0.3s ease; 
+}
+
+.constellation-line {
+    position: absolute;
+    background-color: beige;
+    height: 2px;
+}
+
 
 .shooting-star {
     position: absolute;
@@ -49,19 +65,19 @@
     border-radius: 50%;
     animation: shooting-star-animation linear infinite;
     opacity: 1; /* Initial opacity */
-  }
+}
 
 body {
     margin: 0;
     overflow: hidden;
 }
 
-.constellation-container {
+.constellations-container {
     position: absolute;
-    width: 900; /* Set a fixed width */
-    height: 1700; /* Set a fixed height */
+    width: 1707px; /* Set a fixed width */
+    height: 983px; /* Set a fixed height */
     background-color: rgb(14, 13, 31);
-    /* overflow: auto;  */
+    overflow: auto; 
 }
 
 @keyframes shooting-star-animation {
@@ -79,7 +95,7 @@ body {
 }
 
 
-  
+
 
 @keyframes shimmer {
     to {
@@ -98,6 +114,6 @@ body {
         transform: translate(0.2px, -0.2px) rotate(90deg); 
     }
 }
-  
+
 
 

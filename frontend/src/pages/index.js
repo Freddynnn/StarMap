@@ -11,8 +11,9 @@ export { default as Register } from './Profile/Register';
 
 // export { default as EditContact } from './Contacts/EditContact';
 
-// export { default as ContactsPage } from './Contacts/ContactsPage';
+export { default as ConstellationPage } from './Constellation/ConstellationPage';
 export { default as NewConstellation } from './Constellation/NewConstellation';
+
 // export { default as SingleContactPage } from './Contacts/SingleContactPage';
 
 

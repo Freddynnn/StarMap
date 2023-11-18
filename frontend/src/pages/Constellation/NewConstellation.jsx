@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Button from '../../components/Button/Button'
 import axios from 'axios';
 
 function NewConstellation({user}) {
@@ -8,6 +9,7 @@ function NewConstellation({user}) {
         name: '',
         description: '',
         stars: '',
+        lines: '',
         userID: user._id, // set to database user id by default
 
     });
@@ -22,8 +24,18 @@ function NewConstellation({user}) {
         e.preventDefault();
     
         try {
-            // Adjust the parsing logic to handle the first pair correctly
+            // parsing logic for stars
             const parsedStars = formData.stars
+                .split(/\],?\s?\[/) // Split by '], [' or '],['
+                .map((pair) =>
+                pair
+                    .replace(/\[|\]/g, '') // Remove square brackets
+                    .split(',')
+                    .map((num) => parseFloat(num.trim()))
+                );
+
+            // Parsing logic for lines
+            const parsedLines = formData.lines
                 .split(/\],?\s?\[/) // Split by '], [' or '],['
                 .map((pair) =>
                 pair
@@ -35,6 +47,7 @@ function NewConstellation({user}) {
             const dataToSend = {
                 ...formData,
                 stars: parsedStars,
+                lines: parsedLines,
             };
         
             // Send a POST request to your backend API to create a new constellation
@@ -83,8 +96,16 @@ function NewConstellation({user}) {
                         onChange={handleInputChange}
                     />
                 </div>
+                <div>
+                    <label>Lines (Enter indeces of stars to join like [0,1] will join the stars: [0.8, -0.25], [3.3, -0.5]):</label>
+                    <textarea
+                        name="lines"
+                        value={formData.lines}
+                        onChange={handleInputChange}
+                    />
+                </div>
 
-                <button type="submit">Create group</button>
+                <Button type="submit">Create Constellation</Button>
             </form>
         </div>
     );

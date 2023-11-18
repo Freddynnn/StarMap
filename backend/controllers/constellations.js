@@ -24,21 +24,21 @@ const getAllConstellations = async (req, res) => {
 
 // Function for rendering a specific Constellations page
 const getConstellationByID = async (req, res) => {
-    const { id } = req.params;
+    const { ID } = req.params;
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
+    if (!mongoose.Types.ObjectId.isValid(ID)) {
         return res.status(404).json({ error: 'No Constellations found' });
     }
 
-    const constellation = await Constellation.findById(id);
+    const constellation = await Constellation.findById(ID);
 
     return res.status(200).json(constellation);
 };
 
 // Function to add a new constellation to the database
 const createConstellation = async (req, res) => {
-    const { name, description, stars, userID } = req.body;
-    const newConstellation = new Constellation({ name, description, stars, userID });
+    const { name, description, stars, lines, userID } = req.body;
+    const newConstellation = new Constellation({ name, description, stars, lines, userID });
 
     // TODO: for images associated with constellations
     const fileName = req.file != null ? req.file.filename : null;
@@ -53,25 +53,25 @@ const createConstellation = async (req, res) => {
 
 // function for deleting a specific Constellation
 const deleteConstellationByID = async (req, res) => {
-    const { id } = req.params;
+    const { ID } = req.params;
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
+    if (!mongoose.Types.ObjectId.isValid(ID)) {
         return res.status(404).json({ error: 'This Constellation does not exist' });
     }
 
-    const constellation = await Constellation.findByIdAndDelete(id);
+    const constellation = await Constellation.findByIdAndDelete(ID);
     return res.status(200).json(constellation);
 };
 
 // editing the information of a single constellation
 const editConstellationByID = async (req, res) => {
-    const { id } = req.params;
+    const { ID } = req.params;
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
+    if (!mongoose.Types.ObjectId.isValid(ID)) {
         return res.status(404).json({ error: 'This Constellation does not exist' });
     }
 
-    const constellation = await Constellation.findByIdAndUpdate(id, req.body);
+    const constellation = await Constellation.findByIdAndUpdate(ID, req.body);
     return res.status(200).json(constellation);
 };
 

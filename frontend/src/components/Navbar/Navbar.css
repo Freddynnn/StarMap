@@ -36,6 +36,12 @@
     cursor: pointer;
 }
 
+.Navbar-title:hover {
+    color: var(--color-button);
+}
+
+
+
 /* Active link styles */
 .nav-links.active {
     color: #a35d5d; 
@@ -53,7 +59,7 @@
     text-transform: capitalize;
     margin-right: 3%;
     cursor: pointer;
-    text-decoration: underline; /* Add this line to underline the text */
+    /* text-decoration: underline; */
  }
  
 

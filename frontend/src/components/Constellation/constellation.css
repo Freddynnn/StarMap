@@ -1,0 +1,71 @@
+.constellation-container {
+    background-color: #0e0d1f;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
+
+.constellation-image-container {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 20px; 
+}
+
+
+.constellation-info-container {
+    width: 45%; 
+    box-sizing: border-box;
+    padding: 20px; 
+}
+
+
+.constellation-title {
+    font-family: var(--font-family);
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+
+
+.constellation-description {
+    font-family: var(--font-family);
+    font-size: 1.6rem;
+    font-weight: bold;
+    width: 740px;
+    height: 450px; 
+}
+
+.constellation-star {
+    position: absolute;
+    background-color: beige;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    animation: shimmer 1.5s infinite alternate; 
+}
+
+
+.constellation-lines {
+    position: absolute;
+    top: 0%;
+    left:0%;
+    width: 100%;
+    height: 100%;
+
+    opacity: 0.2;
+    transition: opacity 0.3s ease; 
+}
+
+.constellation-line {
+    position: absolute;
+    background-color: beige;
+    height: 2px;
+}
+
+
+.constellation-buttons {
+    width: 740px;   
+    display: flex;
+    justify-content:space-evenly;
+}

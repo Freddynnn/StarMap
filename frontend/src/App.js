@@ -9,12 +9,7 @@ import { useState } from "react";
 
 
 import { Navbar, Layout, PriNavbar, Protected } from './components';
-
-// import {ContactsPage, NewContactForm, SingleContactPage, 
-//   EditEventForm, NewEventForm, SingleEventPage,
-//   GroupsPage, NewGroupForm, SingleGroupPage, , Profile, Home} from './pages';
-
-import {Home, Dashboard, About, ContactUs, Login, Register, Profile,  NewConstellation} from './pages'
+import {Home, Dashboard, About, ContactUs, Login, Register, Profile,  NewConstellation, ConstellationPage } from './pages'
 
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
@@ -49,8 +44,8 @@ const App = () => {
             
             <Routes>
               
-             {/* public routes */}
-             <Route path="/" element={<Home />} />
+            {/* public routes */}
+            <Route path="/" element={<Home />} />
 
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -72,6 +67,17 @@ const App = () => {
                 }
               />
 
+              
+
+              <Route
+                path="/profile"
+                element={
+                  <Protected isLoggedIn={isLoggedIn}>
+                    <Profile user={user} logOut={logOut} />
+                  </Protected>
+                }
+              />
+
               <Route 
                 path="/constellation/new" 
                 element={
@@ -81,13 +87,13 @@ const App = () => {
                 } 
               />
 
-              <Route
-                path="/profile"
+              <Route 
+                path="/constellation/:ID" 
                 element={
-                  <Protected isLoggedIn={isLoggedIn}>
-                    <Profile user={user} logOut={logOut} />
+                  <Protected isLoggedIn={isLoggedIn}>    
+                    <ConstellationPage />
                   </Protected>
-                }
+                } 
               />
 
 
@@ -99,17 +105,7 @@ const App = () => {
                   <ContactsPage user={user} />
                 }
               />
-            
-              
-              
-              <Route 
-              path="/contacts/contact/:id" 
-              element={
-                <Protected isLoggedIn={isLoggedIn}>    
-                  <SingleContactPage />
-                </Protected>
-                } 
-              /> */}
+              */}
 
 
             </Routes>            

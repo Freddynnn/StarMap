@@ -14,6 +14,10 @@ const constellationSchema = new mongoose.Schema({
         type: [[Number]],
         required: true,
     }, 
+    lines: {
+        type: [[Number]],
+        required: true,
+    }, 
     userID: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
