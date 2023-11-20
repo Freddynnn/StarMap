@@ -14,25 +14,23 @@
 
 
 .navbar-links_container {
-    /* margin-left: 10rem; */
-    /* margin-top: 3rem; */
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
     width: 90%;
-
 } 
 
 .Navbar-title {
     font-size: 3rem;
     font-family: var(--font-family);
     font-weight: bolder;
-    
+    display: absolute;
     color: rgb(14, 13, 31);
-    width: 35rem;
+    min-width: 650px;
+    width: 650px;
     height: 100%;
-    margin-right: 25%;
+    /* margin-right: 25%; */
     cursor: pointer;
 }
 

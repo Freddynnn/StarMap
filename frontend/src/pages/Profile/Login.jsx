@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import '../../components/Form/form.css';
 import Layout from '../../components/Layouts/Layout';
 import Button from '../../components/Button/Button';
-
+import '../../components/Form/form.css';
 import axios from 'axios';
 
 function Login({ logIn }) {
@@ -55,27 +54,31 @@ function Login({ logIn }) {
               name="user"
               type="text"
               id="user"
-              placeholder="username"
+              placeholder="Username"
               value={user}
               onChange={(e) => setUser(e.target.value)}
               autoComplete="username"
             />
-            <label>Password</label>
+            <label htmlFor="password">Password</label>
             <input
               name="password"
               type="password"
-              placeholder="password"
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               autoComplete="current-password"
             />
             {error && <p className="error-message">{error}</p>}
+
+            <br/>
+            <br/>
             <Button type="submit">Submit</Button>
           </form>
         </section>
       </main>
     </Layout>
   );
+  
 }
 
 export default Login;

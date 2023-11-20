@@ -93,11 +93,12 @@ function Profile({ user, logOut }) {
         <div className='profile-container'>
           <div className="info">
             <h1>{user.username}</h1>
-            <h2>First Name: {user.firstName}</h2>
-            <h2>Last Name: {user.lastName}</h2>
-            {/* <h2>Username: {user.username}</h2> */}
+            
             <h2>Email Address: {user.email}</h2>
-            <h2>Phone: {user.phone}</h2>
+
+            {/* <h2>First Name: {user.firstName}</h2>
+            <h2>Last Name: {user.lastName}</h2>
+            <h2>Phone: {user.phone}</h2> */}
           </div>
           <section className="edit">
             <Button onClick={handleEditClick}>EDIT</Button>

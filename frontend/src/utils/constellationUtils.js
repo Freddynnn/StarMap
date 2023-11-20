@@ -21,6 +21,9 @@ export function createStar(container) {
 
 
 
+
+
+
 // shooting star creation function
 export function createShootingStar(container) {
     const shootingStar = document.createElement('div');
@@ -57,13 +60,13 @@ export function createShootingStar(container) {
         shootingStar.remove();
 
         // Create a new shooting star
-        setTimeout(() => createShootingStar(container), Math.random() * 20000);
+        setTimeout(() => createShootingStar(container), Math.random() * 15000);
     });
 }
 
 
 
-// function for creating contellations
+// function for creating 
 export function createConstellation(container, constellationData, navigate, width, height, top, left,  isNightSky = false) {
     const constellation = document.createElement('div');
     constellation.className = 'constellation';
@@ -85,11 +88,11 @@ export function createConstellation(container, constellationData, navigate, widt
 
         const randomDelay = Math.random() + 's';
         starElement.style.animationDelay = randomDelay;
-
+        
         starElement.style.width = isNightSky ? `${starSize}px` : `${starSize * 3.5}px`;
         starElement.style.height = isNightSky ? `${starSize}px` : `${starSize * 3.5}px`;
-        starElement.style.left = `${starX + 30}%`;
-        starElement.style.top = `${starY + 30}%`;
+        starElement.style.left = `${starX * (100/150)}%`;
+        starElement.style.top = `${starY * (100/180)}%`;
 
         constellation.appendChild(starElement);
     });
@@ -103,25 +106,25 @@ export function createConstellation(container, constellationData, navigate, widt
             const lineElement = document.createElement('div');
             lineElement.className = 'constellation-line';
 
-            lineElement.style.height = isNightSky ? '2px' : '5px';
+            lineElement.style.height = isNightSky ? '2px' : '3px';
 
-            const startStarCenterX = startStar[0] + 30 + ((startStar[2] / 2) * 100 / 150);
-            const startStarCenterY = startStar[1] + 30 + ((startStar[2] / 2) * 100 / 180);
+            const startStarCenterX = ((startStar[0] + startStar[2] / 2) * 100 / 150);
+            const startStarCenterY = ((startStar[1] + startStar[2] / 2) * 100 / 180);
 
-            const endStarCenterX = endStar[0] + 30 + ((endStar[2] / 2) * 100 / 150);
-            const endStarCenterY = endStar[1] + 30 + ((endStar[2] / 2) * 100 / 180);
+            const endStarCenterX = ((endStar[0] + endStar[2] / 2) * 100 / 150);
+            const endStarCenterY = ((endStar[1] + endStar[2] / 2) * 100 / 180);
 
             const distance = Math.sqrt(
                 Math.pow(endStarCenterX - startStarCenterX, 2) + Math.pow(endStarCenterY - startStarCenterY, 2)
-            ) * 1.1;
+            ) * 1.05;
 
-            const angle = Math.atan2(endStarCenterY - startStarCenterY, endStarCenterX - startStarCenterX) * (180 / Math.PI) * 0.95;
+            const angle = Math.atan2(endStarCenterY - startStarCenterY, endStarCenterX - startStarCenterX) * (176 / Math.PI);
 
             lineElement.style.width = `${distance}%`;
             lineElement.style.transformOrigin = 'top left';
             lineElement.style.transform = `rotate(${angle}deg)`;
-            lineElement.style.left = `${startStarCenterX + (Math.sin(angle) * 100 / 150)}%`;
-            lineElement.style.top = `${startStarCenterY - (Math.cos(angle) * 100 / 150)}%`;
+            lineElement.style.left = `${startStarCenterX}%`;
+            lineElement.style.top = `${startStarCenterY}%`;
 
             linesDisplay.appendChild(lineElement);
         });

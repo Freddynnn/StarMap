@@ -91,9 +91,7 @@ function Register({ logIn }) {
         <form onSubmit={handleSubmit}>
 
           
-          <label htmlFor="user">
-            <span className='req-star'> * </span> 
-            Username
+          <label htmlFor="user"> Username
             {validationErrors.username && (
               <p className="error-message">{validationErrors.username}</p>
             )}
@@ -108,9 +106,7 @@ function Register({ logIn }) {
             value={formData.username}
             onChange={handleChange}
           />
-          <label> 
-            <span className='req-star'> * </span> 
-            Password 
+          <label> Password 
             {validationErrors.password && (
               <p className="error-message">{validationErrors.password}</p>
             )}
@@ -124,6 +120,9 @@ function Register({ logIn }) {
             value={formData.password}
             onChange={handleChange}
           />
+          
+          <br/>
+          <br/>
           <Button type="submit">Submit</Button>
         </form>
         

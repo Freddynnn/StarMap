@@ -3,20 +3,96 @@
     color: white;
     display: flex;
     justify-content: space-around;
+    /* height: 100vh; */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
 }
 
-.constellation-image-container {
+.constellation-container label {
+    display: block;
+    font-size: 1.8rem;
+    font-family: var(--font-family);
+    margin: 1rem auto;
+    width: 100%;
+    text-align: center;
+    
+}
+
+
+.constellation-image {
     width: 50%;
+    padding: 20px; 
+    cursor: default;
+    position: relative;
+    box-sizing: border-box; 
+}
+
+
+.constellation-draw {
+    width: 50%;
+    height: 80%;
+    margin: 2%;
     box-sizing: border-box;
     padding: 20px; 
+    cursor: default;
+    position: relative;
+    border: 3px solid rgba(255, 255, 255, 0.2); 
+    box-sizing: border-box; 
+    border-radius: 2%;
+}
+
+.drawing {
+    cursor: crosshair;
+}
+
+.drawing-text {
+    font-size: 5rem;
+    cursor: pointer;
+    user-select: none; /* Disable text selection */
+    color: grey;
+    position: absolute;
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    margin: 2%;
+    width: 15%;
+    height: 17%;
+    background-color: rgb(29, 27, 65);
+    border: 3px solid rgba(187, 187, 187, 0.2); 
+    box-sizing: border-box; 
+    border-radius: 10%;
+}
+
+.drawing-text.drawing {
+    color: white;
 }
 
 
-.constellation-info-container {
+
+.constellation-info {
     width: 45%; 
     box-sizing: border-box;
     padding: 20px; 
 }
+
+.constellation-info label {
+    font-family: var(--font-family);
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.constellation-info textarea {
+    font-family: var(--font-family);
+    font-size: 1.6rem;
+    width: 60%;
+    height: 200px; /* You can adjust the height as needed */
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    border: none;
+    outline: none;
+    resize: none; /* Disable textarea resizing */
+}
+  
 
 
 .constellation-title {
@@ -26,13 +102,33 @@
     margin-bottom: 25px;
 }
 
+.constellation-edit-title {
+    font-family: var(--font-family);
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.constellation-edit-title input {
+    font-family: var(--font-family);
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+  
+
 
 
 .constellation-description {
     font-family: var(--font-family);
     font-size: 1.6rem;
     font-weight: bold;
-    width: 740px;
+    width: 700px;
     height: 450px; 
 }
 

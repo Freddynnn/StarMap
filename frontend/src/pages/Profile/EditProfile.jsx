@@ -11,7 +11,7 @@ const EditProfile = ({ isEditMode, editedUser, handleEditInputChange, handleEdit
           <h2 className="event-details-heading">Edit Profile</h2>
           <form>
             {/* Display the current user's details */}
-            <div className="input-label-pair">
+            {/* <div className="input-label-pair">
               <label htmlFor="edit-firstName" className="event-details-label">First Name:</label>
               <input
                 value={editedUser.firstName}
@@ -47,17 +47,7 @@ const EditProfile = ({ isEditMode, editedUser, handleEditInputChange, handleEdit
               />
             </div>
 
-            <div className="input-label-pair">
-              <label htmlFor="edit-email" className="event-details-label">Email:</label>
-              <input
-                value={editedUser.email}
-                onChange={handleEditInputChange}
-                name="email"
-                type="email"
-                id="edit-email"
-                className="event-details-input"
-              />
-            </div>
+            
 
             <div className="input-label-pair">
               <label htmlFor="edit-phone" className="event-details-label">Phone:</label>
@@ -67,6 +57,18 @@ const EditProfile = ({ isEditMode, editedUser, handleEditInputChange, handleEdit
                 name="phone"
                 type="tel"
                 id="edit-phone"
+                className="event-details-input"
+              />
+            </div> */}
+
+            <div className="input-label-pair">
+              <label htmlFor="edit-email" className="event-details-label">Email:</label>
+              <input
+                value={editedUser.email}
+                onChange={handleEditInputChange}
+                name="email"
+                type="email"
+                id="edit-email"
                 className="event-details-input"
               />
             </div>

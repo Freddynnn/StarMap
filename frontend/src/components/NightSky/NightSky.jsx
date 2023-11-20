@@ -34,15 +34,48 @@ const NightSky = ({ user }) => {
 
         // initializing the constellations we fetched from the db
         const initializeConstellations = () => {
+            const spawnRadius = 250; 
+            const createdConstellations = [];
+        
+            const isOverlapping = (pos1, pos2) => {
+                const distance = Math.sqrt(
+                    Math.pow(pos2.left - pos1.left, 2) + Math.pow(pos2.top - pos1.top, 2)
+                );
+                return distance < spawnRadius;
+            };
+        
+            const createRandomPosition = () => ({
+                top: `${(Math.random() * ((906) / 2)) + 906 / 4 - 150}px`,
+                left: `${(Math.random() * ((1707) / 2)) + 1707 / 4 - 180}px`,
+            });
+        
+            const createUniquePosition = () => {
+                let newPosition;
+                do {
+                    newPosition = createRandomPosition();
+                    console.log('Generated position:', newPosition);
+                } while (createdConstellations.some((existing) => isOverlapping(existing, newPosition)));
+        
+                console.log('All positions:', createdConstellations); // Add this log
+        
+                return newPosition;
+            };
+        
             constellations.forEach((constellationData) => {
                 const width = '150px';
                 const height = '180px';
-                const top = `${(Math.random() * ((906) / 2)) + 906 / 4 - 250}px`;
-                const left = `${(Math.random() * ((1707) / 2)) + 1707 / 4 - 100}px`;
-               
-                createConstellation(constellationsContainer, constellationData, navigate, width, height, top, left, true);
+        
+                const newPosition = createUniquePosition();
+                console.log('Adding constellation at:', newPosition);
+        
+                createdConstellations.push(newPosition);
+        
+                createConstellation(constellationsContainer, constellationData, navigate, width, height, newPosition.top, newPosition.left, true);
             });
         };
+        
+        
+        
 
 
         // actually calling the functions above on conmponent mount
@@ -50,7 +83,7 @@ const NightSky = ({ user }) => {
             fetchConstellations();
         } else {
             initializeConstellations();
-            setTimeout(() => createShootingStar(constellationsContainer), Math.random() * 20000);
+            setTimeout(() => createShootingStar(constellationsContainer), Math.random() * 15000);
             initializeStars();
         }
     }, [constellationsFetched, navigate]);
