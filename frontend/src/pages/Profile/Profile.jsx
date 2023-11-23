@@ -33,7 +33,7 @@ function Profile({ user, logOut }) {
     if (window.confirm('Are you sure you want to delete your account? This action is irreversible.')) {
       try {
         // Send a DELETE request to your backend to delete the user's account
-        const response = await axios.delete(`https://nexuspod-backend.onrender.com/user/${user._id}`);
+        const response = await axios.delete(`https://starmap-43wf.onrender.com/user/${user._id}`);
         
         if (response.status === 200) {
           console.log('Account deleted successfully');
@@ -55,7 +55,7 @@ function Profile({ user, logOut }) {
       console.log('User ID before patch:', user._id);
       
       // Send a PATCH request to update the user's profile
-      const response = await axios.patch(`https://nexuspod-backend.onrender.com/user/${user._id}`, editedUser);
+      const response = await axios.patch(`https://starmap-43wf.onrender.com/user/${user._id}`, editedUser);
 
       if (response.status === 200) {
         setIsEditMode(false);

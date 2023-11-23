@@ -48,7 +48,7 @@ function Register({ logIn }) {
 
     try {
       console.log('Before Axios request');
-      const response = await axios.post('http://localhost:3001/register', formData);
+      const response = await axios.post('https://starmap-43wf.onrender.com/register', formData);
       console.log('After Axios request', response);
 
       // successful registration

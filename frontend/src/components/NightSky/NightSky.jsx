@@ -16,7 +16,7 @@ const NightSky = ({ user }) => {
 
         const fetchConstellations = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/constellations/${user._id}`);
+                const response = await axios.get(`https://starmap-43wf.onrender.com/constellations/${user._id}`);
                 setConstellations(response.data);
                 setConstellationsFetched(true);
             } catch (error) {

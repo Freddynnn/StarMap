@@ -37,7 +37,7 @@ function ConstellationPage() {
 
     const fetchConstellation = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/constellation/' + ID);
+            const response = await axios.get('https://starmap-43wf.onrender.com/constellation/' + ID);
             setConstellation(response.data);
             setConstellationsFetched(true);
         } catch (err) {
@@ -69,7 +69,7 @@ function ConstellationPage() {
     // Function to handle the edit form submission
     const handleEditSubmit = async () => {
         try {
-        const response = await axios.patch('http://localhost:3001/constellation/' + ID, editedConstellation, {
+        const response = await axios.patch('https://starmap-43wf.onrender.com/constellation/' + ID, editedConstellation, {
             timeout: 10000, // Set a longer timeout (in milliseconds)
         });
         if (response.status === 200) {
@@ -89,7 +89,7 @@ function ConstellationPage() {
     const handleDeleteClick = async () => {
         if (window.confirm('Are you sure you want to delete this constellation? This action is irreversible.')) {
         try {
-            const response = await axios.delete('http://localhost:3001/constellation/' + ID);
+            const response = await axios.delete('https://starmap-43wf.onrender.com/constellation/' + ID);
             setConstellation(null);
         } catch (err) {
             console.error(err);

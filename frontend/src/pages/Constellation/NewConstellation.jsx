@@ -71,7 +71,7 @@ function NewConstellation({ user }) {
     
             // Send a POST request to your backend API to create a new constellation
             const response = await axios.post(
-                'http://localhost:3001/constellation/new',
+                'https://starmap-43wf.onrender.com/constellation/new',
                 dataToSend
             );
     
