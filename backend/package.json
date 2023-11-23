@@ -4,6 +4,7 @@
   "description": "Collection of my personal projects",
   "main": "index.js",
   "scripts": {
+    "build": "echo 'No build step needed'",
     "test": "jest",
     "start": "node server.js",
     "devStart": "nodemon server.js"

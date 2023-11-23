@@ -9,3 +9,13 @@
     --color-text: rgb(239, 237, 231); 
     --colur-subtext: black;
 }
+
+h2 {
+    font-family: var(--font-family);
+    font-size: 3rem;
+}
+
+h4 {
+    font-family: var(--font-family);
+    font-size: 2rem;
+}

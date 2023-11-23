@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '../components/Layouts/Layout';
+import '../components/About/about.css'
 
 const About = () => {
   return (
@@ -7,15 +8,30 @@ const About = () => {
       <div className='about-page'>
         
         <div className='description'>
-          <h2>TITLE </h2>
-          <h4>SUBTITLE</h4>
-          <p>
-            DESCRIPTION
-          </p>
+          <h2> TO THE LIGHT OF MY LIFE  </h2>
+          <div>
+            <h4>
+              {/* THESE CONSTELLATIONS ARE MEMENTOS FROM THOSE WHO LOVE YOU. */}
+
+              
+            </h4>
+          </div>
+          <div>
+            <h4>
+              MAY THE STARS SERVE A REMINDER TO 
+
+              
+            </h4>
+          </div>
+          <div>
+            <h4>
+              I LOVE YOU 
+              
+              
+            </h4>
+          </div>
+          
         </div>
-        <footer>
-          <h3>FOOTER </h3>
-        </footer>
       </div>
     </Layout>
   );

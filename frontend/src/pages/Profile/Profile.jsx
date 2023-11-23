@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
-import EditProfile from './EditProfile.jsx'; // Import the EditProfile component
+import EditProfile from './EditProfile.jsx'; 
 import '../../components/Profile/profile.css';
 
 function Profile({ user, logOut }) {
@@ -102,9 +102,9 @@ function Profile({ user, logOut }) {
           </div>
           <section className="edit">
             <Button onClick={handleEditClick}>EDIT</Button>
-            <Link to="/change">
+            {/* <Link to="/change">
               <Button>CHANGE PASSWORD</Button>
-            </Link>
+            </Link> */}
             <Button onClick={logOut}>LOGOUT</Button>
             <Button onClick={handleDeleteAccount}>DELETE ACCOUNT</Button>
           </section>

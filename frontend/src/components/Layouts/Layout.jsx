@@ -11,7 +11,7 @@ function Layout({ children }) {
       </header>
 
       {/* Main content */}
-      <main>{children}</main>
+      <main >{children}</main>
 
       {/* Footer */}
       <footer>

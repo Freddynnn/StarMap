@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './NightSky.css';
 import { useNavigate } from 'react-router-dom';
-import { createStar, createShootingStar, createConstellation } from '../../utils/constellationUtils';
+import { createStar, createShootingStar, createConstellation, createMoon } from '../../utils/constellationUtils';
 
 const NightSky = ({ user }) => {
     const navigate = useNavigate();
@@ -12,7 +12,7 @@ const NightSky = ({ user }) => {
     const [constellationsFetched, setConstellationsFetched] = useState(false);
 
     useEffect(() => {
-        const constellationsContainer = document.getElementById('constellationsContainer');
+        const skyContainer = document.getElementById('skyContainer');
 
         const fetchConstellations = async () => {
             try {
@@ -27,8 +27,8 @@ const NightSky = ({ user }) => {
 
         // function to initialize all the stars and add them to the container
         const initializeStars = () => {
-            for (let i = 0; i < 200; i++) {
-                createStar(constellationsContainer);
+            for (let i = 0; i < 400; i++) {
+                createStar(skyContainer, true);
             }
         }
 
@@ -45,7 +45,7 @@ const NightSky = ({ user }) => {
             };
         
             const createRandomPosition = () => ({
-                top: `${(Math.random() * ((906) / 2)) + 906 / 4 - 150}px`,
+                top: `${(Math.random() * ((1800) / 1.5)) + 1800 / 8 - 150}px`,
                 left: `${(Math.random() * ((1707) / 2)) + 1707 / 4 - 180}px`,
             });
         
@@ -70,7 +70,7 @@ const NightSky = ({ user }) => {
         
                 createdConstellations.push(newPosition);
         
-                createConstellation(constellationsContainer, constellationData, navigate, width, height, newPosition.top, newPosition.left, true);
+                createConstellation(skyContainer, constellationData, navigate, width, height, newPosition.top, newPosition.left, true);
             });
         };
         
@@ -81,14 +81,17 @@ const NightSky = ({ user }) => {
         // actually calling the functions above on conmponent mount
         if (!constellationsFetched) {
             fetchConstellations();
+            
         } else {
             initializeConstellations();
-            setTimeout(() => createShootingStar(constellationsContainer), Math.random() * 15000);
+            setTimeout(() => createShootingStar(skyContainer), Math.random() * 15000);
             initializeStars();
+            // createMoon(constellationsContainer);
+            
         }
     }, [constellationsFetched, navigate]);
 
-    return <div id="constellationsContainer" className="constellations-container"></div>;
+    return <div id="skyContainer" className="sky-container"></div>;
 };
 
 export default NightSky;

@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3001;
 const constellationRouter = require('./routes/constellations')
 const loginRouter = require('./routes/login')
 
-const uri = "mongodb+srv://Freddy:test123@cluster0.tunrfyo.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://freddytnn:sD6Enqo5JFg2uWMc@starmap.q3mnqcg.mongodb.net/?retryWrites=true&w=majority";
 
 
 if (process.env.NODE_ENV !== 'production'){
@@ -20,8 +20,8 @@ app.use(express.json())
 
 
 // Connect to the MongoDB database using Mongoose
-mongoose.connect(process.env.DATABASE_URL, {
-// mongoose.connect(uri, {
+// mongoose.connect(process.env.DATABASE_URL, {
+mongoose.connect(uri, {
   useNewUrlParser: true,
 });
 const db = mongoose.connection

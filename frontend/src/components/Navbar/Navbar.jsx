@@ -14,8 +14,8 @@ function Navbar () {
         {/* <div className='Navbar-title'> A MAP OF THE STARS </div> */}
         <Link to='/home' className='Navbar-title'>A MAP OF THE STARS </Link>
         
-        <Link to='/login' className='nav-links'>Login</Link>
-        <Link to='/about' className='nav-links'>About</Link>
+        <Link to='/login' className='nav-links'>LOGIN</Link>
+        <Link to='/about' className='nav-links'>ABOUT</Link>
         {/* <Link to='/constellation/new' className='nav-links'>Create Constellation</Link> */}
         <div className='navbar-button'>
           {button && <Link to="register"><Button>SIGN UP</Button></Link>}

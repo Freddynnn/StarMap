@@ -18,14 +18,15 @@ function ConstellationPage() {
 
 
     const prevIsEditMode = useRef(isEditMode);
-
+    
     useEffect(() => {
         const skyContainer = document.getElementById('skyContainer');
+        const constellationContainer = document.getElementById('constellationContainer');
         if (!constellationsFetched) {
             fetchConstellation();
         } else {
             initializeStars(skyContainer);
-            initializeConstellation(skyContainer);
+            initializeConstellation(constellationContainer);
             setTimeout(() => createShootingStar(skyContainer), Math.random() * 20000);
         }
 
@@ -110,7 +111,7 @@ function ConstellationPage() {
         navigate,
         '650px',
         '780px',
-        `-50px`,
+        `-20px`,
         `120px`,
         false 
         );

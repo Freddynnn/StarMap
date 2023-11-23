@@ -9,79 +9,25 @@ import axios from 'axios';
 
 function NewConstellation({ user }) {
     const navigate = useNavigate();
+    const constellationContainer = document.getElementById('constellationContainer');
+    const [isDrawing, setIsDrawing] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         description: '',
-        stars: [], // Array to store stars as [x, y] coordinates
-        lines: [], // Array to store lines as [startIndex, endIndex]
+        stars: [], 
+        lines: [], 
         userID: user._id, // set to the database user id by default
     });
 
-
-    const [isDrawing, setIsDrawing] = useState(false);
 
     useEffect(() => {
         const skyContainer = document.getElementById('skyContainer');
         
         initializeStars(skyContainer);
         setTimeout(() => createShootingStar(skyContainer), Math.random() * 20000);
-    
-        
-        // You can also create lines if needed
-        // createLines();
-
-        // If you want to update lines based on user input, you can use the following
-        // updateLines(parsedLines);
     }, []); 
 
 
-    const toggleDrawing = () => {
-        setIsDrawing(!isDrawing);
-    };
-    
-    const drawStar = (e) => {
-        if (isDrawing) {
-            const constellationContainer = document.getElementById('constellationContainer');
-            const boundingRect = constellationContainer.getBoundingClientRect();
-            const containerX = e.clientX - boundingRect.left;
-            const containerY = e.clientY - boundingRect.top;
-    
-            if (
-                containerX >= 0 &&
-                containerX <= boundingRect.width - 20 &&
-                containerY >= 0 &&
-                containerY <= boundingRect.height - 20 &&
-                (containerX >= 160 || containerY >= 160)
-            ) {
-                const x = (containerX / boundingRect.width) * 150;
-                const y = (containerY / boundingRect.height) * 180;
-                const randomSize = Math.random() * 2 + 4;
-    
-                setFormData((prevFormData) => ({
-                    ...prevFormData,
-                    stars: [
-                        ...prevFormData.stars,
-                        [x.toFixed(1), y.toFixed(1), randomSize.toFixed(1)], // Limit decimals to 1
-                    ],
-                }));
-    
-                // Create the constellation each time a new star is added
-                createConstellation(
-                    constellationContainer,
-                    { ...formData, stars: [...formData.stars, [x, y, randomSize]] },
-                    navigate,
-                    `${constellationContainer.offsetWidth}px`,
-                    `${constellationContainer.offsetHeight}px`,
-                    0,
-                    0,
-                    false
-                );
-            }
-        }
-    };
-    
-    
-      
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -140,18 +86,76 @@ function NewConstellation({ user }) {
             console.error(error);
         }
     };
-    
 
+
+    const toggleDrawing = () => {
+        setIsDrawing(!isDrawing);
+    };
+
+    const clearDrawing = () => {
+        // Clear the stars array
+        setFormData((prevFormData) => ({
+            ...prevFormData,
+            stars: [],
+        }));
+
+        // Clear the visually drawn stars in the constellationContainer
+        const stars = constellationContainer.querySelectorAll('.constellation-star');
+        stars.forEach((star) => star.remove());
+    
+        // Optionally, you can also clear other related state variables if needed
+        // For example, if you want to clear lines array when clearing the drawing:
+        // setFormData((prevFormData) => ({
+        //     ...prevFormData,
+        //     stars: [],
+        //     lines: [],
+        // }));
+    };
+    
+    const drawStar = (e) => {
+        if (isDrawing) {
+            const boundingRect = constellationContainer.getBoundingClientRect();
+            const containerX = e.clientX - boundingRect.left;
+            const containerY = e.clientY - boundingRect.top;
+    
+            if (
+                containerX >= 0 &&
+                containerX <= boundingRect.width - 20 &&
+                containerY >= 0 &&
+                containerY <= boundingRect.height - 20 
+            ) {
+                const x = (containerX / boundingRect.width) * 150;
+                const y = (containerY / boundingRect.height) * 180;
+                const randomSize = Math.random() * 2 + 4;
+    
+                setFormData((prevFormData) => ({
+                    ...prevFormData,
+                    stars: [
+                        ...prevFormData.stars,
+                        [x.toFixed(1), y.toFixed(1), randomSize.toFixed(1)], // Limit decimals to 1
+                    ],
+                }));
+    
+                // Create the constellation each time a new star is added
+                createConstellation(
+                    constellationContainer,
+                    { ...formData, stars: [...formData.stars, [x, y, randomSize]] },
+                    navigate,
+                    `${constellationContainer.offsetWidth}px`,
+                    `${constellationContainer.offsetHeight}px`,
+                    0,
+                    0,
+                    false
+                );
+            }
+        }
+    };
+    
     const initializeStars = (skyContainer) => {
         for (let i = 0; i < 100; i++) {
         createStar(skyContainer);
         }
     };
-
-
-
-
-    
 
     return (
         <Layout>
@@ -165,10 +169,25 @@ function NewConstellation({ user }) {
                 >   
                     <span 
                         id='drawingText' 
-                        className={`drawing-text ${isDrawing ? 'drawing' : ''}`} 
+                        className={`draw-tools drawing-text ${isDrawing ? 'drawing' : ''}`}
                         onClick={() => toggleDrawing()}
                         style={{ zIndex: 1 }}
                     > ✎ </span>
+                    <span 
+                        id='drawingText' 
+                        className= 'draw-tools drawing-clear'
+                        onClick={() => clearDrawing()}
+                        style={{ zIndex: 1 }}
+                    > ✖ </span>
+
+<                   span 
+                        id='drawingText' 
+                        className= 'draw-tools drawing-line'
+                        // onClick={() => clearDrawing()}
+                        style={{ zIndex: 1 }}
+                    > ╱ </span>
+
+
                 </div>
                 
                 <div className='constellation-info'>
@@ -204,13 +223,16 @@ function NewConstellation({ user }) {
                     </div> */}
                     <div>
                         <label>
-                            Lines:
-                        </label>
+                            Lines / Star Indeces
+                        </label> 
+                        <label>
+                            ([0,1] joins stars at index 0 and 1) 
+                        </label> 
                         <input
                             name='lines'
                             value={formData.lines}
                             onChange={handleInputChange}
-                            placeholder='star indices: [0,1] joins stars at index 0 and 1'
+                            placeholder='[0,1], [1,2], [4,5]...'
                         />
                     </div> 
                    

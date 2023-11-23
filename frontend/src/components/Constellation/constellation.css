@@ -1,11 +1,29 @@
+/* INDIVIDUAL CONSTELLATION PAGE CSS */
+
 .constellation-container {
     background-color: #0e0d1f;
     color: white;
     display: flex;
     justify-content: space-around;
-    /* height: 100vh; */
-    overflow-y: auto; /* Enable vertical scrolling if needed */
+    height: 87.9vh;
+    /* overflow: hidden; */
 }
+
+
+.form-container {
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 0px;
+    margin-top: 2%;
+    padding: 2rem;
+    font-size: 2rem;
+    font-family: var(--font-family);
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
 
 .constellation-container label {
     display: block;
@@ -13,10 +31,8 @@
     font-family: var(--font-family);
     margin: 1rem auto;
     width: 100%;
-    text-align: center;
-    
+    text-align: center;   
 }
-
 
 .constellation-image {
     width: 50%;
@@ -27,6 +43,9 @@
 }
 
 
+
+
+/* DRAWING STYLES */
 .constellation-draw {
     width: 50%;
     height: 80%;
@@ -44,33 +63,59 @@
     cursor: crosshair;
 }
 
-.drawing-text {
-    font-size: 5rem;
+.draw-tools {
+    font-size: 3.5rem;
     cursor: pointer;
-    user-select: none; /* Disable text selection */
+    user-select: none;
     color: grey;
     position: absolute;
-    top: 0; /* Align to the top */
-    left: 0; /* Align to the left */
-    margin: 2%;
-    width: 15%;
-    height: 17%;
+    width: 10%;
+    height: 12%;
     background-color: rgb(29, 27, 65);
-    border: 3px solid rgba(187, 187, 187, 0.2); 
-    box-sizing: border-box; 
+    border: 3px solid rgba(187, 187, 187, 0.2);
+    box-sizing: border-box;
     border-radius: 10%;
+    margin: 2%;
 }
 
-.drawing-text.drawing {
+.draw-tools.drawing {
     color: white;
 }
+
+.draw-tools.drawing-clear {
+    top: 30%;
+    left: 0;
+}
+
+.draw-tools.drawing-text {
+    top: 0;
+    left: 0;
+}
+
+.draw-tools.drawing-line {
+    top: 15%;
+    left: 0;
+    font-size: 3rem;
+}
+
+
+.drawing-text:hover,
+.drawing-clear:hover,
+.drawing-line:hover {
+    color: white; /* Color on hover */
+}
+
+
 
 
 
 .constellation-info {
-    width: 45%; 
+    width: 45%;
     box-sizing: border-box;
-    padding: 20px; 
+    padding: 20px;
+    display: flex; /* Add flex container property */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
 }
 
 .constellation-info label {
@@ -84,7 +129,7 @@
     font-family: var(--font-family);
     font-size: 1.6rem;
     width: 60%;
-    height: 200px; /* You can adjust the height as needed */
+    height: 200px; 
     background-color: transparent;
     color: white;
     text-align: center;
@@ -92,23 +137,9 @@
     outline: none;
     resize: none; /* Disable textarea resizing */
 }
-  
 
 
-.constellation-title {
-    font-family: var(--font-family);
-    font-size: 4rem;
-    font-weight: bold;
-    margin-bottom: 25px;
-}
 
-.constellation-edit-title {
-    font-family: var(--font-family);
-    font-size: 4rem;
-    font-weight: bold;
-    margin-bottom: 25px;
-    text-align: center;
-}
 
 .constellation-edit-title input {
     font-family: var(--font-family);
@@ -120,7 +151,7 @@
     outline: none;
     text-align: center;
 }
-  
+
 
 
 
@@ -128,19 +159,16 @@
     font-family: var(--font-family);
     font-size: 1.6rem;
     font-weight: bold;
-    width: 700px;
+    width: 650px;
     height: 450px; 
 }
 
 .constellation-star {
     position: absolute;
     background-color: beige;
-    width: 5px;
-    height: 5px;
     border-radius: 50%;
     animation: shimmer 1.5s infinite alternate; 
 }
-
 
 .constellation-lines {
     position: absolute;
@@ -164,4 +192,27 @@
     width: 740px;   
     display: flex;
     justify-content:space-evenly;
+}
+
+
+.constellation-puzzle {
+    width: 740px;   
+    display: flex;
+    justify-content:space-around;
+}
+
+.puzzle-input {
+    width: 600px;
+    font-family: var(--font-family);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.puzzle-answer {
+    width: 500px;
+    font-family: var(--font-family);
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
 }

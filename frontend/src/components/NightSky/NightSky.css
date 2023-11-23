@@ -8,6 +8,12 @@
     animation: shimmer 1.5s infinite alternate, shake 1.5s infinite alternate; /* Combine animations */
 }
 
+.moon {
+    position: absolute;
+    background-color: rgb(229, 221, 177);
+    border-radius: 50%;
+}
+
 /* Update the .constellation style */
 .constellation {
     position: absolute;
@@ -67,14 +73,14 @@
 }
 
 body {
+    min-height: 100vh;
     margin: 0;
-    overflow: hidden;
 }
 
-.constellations-container {
+.sky-container {
     position: absolute;
-    width: 1707px; /* Set a fixed width */
-    height: 983px; /* Set a fixed height */
+    width: 100%;
+    height: 100vh;
     background-color: rgb(14, 13, 31);
     overflow: auto; 
 }

@@ -1,7 +1,7 @@
 // constellationUtils.js
 
 // function for creating star and adding it to a container
-export function createStar(container) {
+export function createStar(container, isNightSky = false) {
     const star = document.createElement('div');
     star.className = 'star';
 
@@ -13,10 +13,29 @@ export function createStar(container) {
     star.style.width = `${size}px`;
     star.style.height = `${size}px`;
 
-    star.style.top = `${Math.random() * 100}%`;
+    star.style.top = isNightSky ? `${Math.random() * 200}%` : `${Math.random() * 100}%`;     
     star.style.left = `${Math.random() * 100}%`;
 
     container.appendChild(star);
+}
+
+
+export function createMoon(container) {
+    const moon = document.createElement('div');
+    moon.className = 'moon';
+
+    // const randomDelay = Math.random() + 's';
+    // moon.style.animationDelay = randomDelay;
+
+    // Randomize the size of the stars
+    
+    moon.style.width = `50px`;
+    moon.style.height = `50px`;
+
+    moon.style.top = `${(Math.random() * 50)+25}%`;
+    moon.style.left = `${(Math.random() * 50) + 25}%`;
+
+    container.appendChild(moon);
 }
 
 
@@ -121,7 +140,7 @@ export function createConstellation(container, constellationData, navigate, widt
             const angle = Math.atan2(endStarCenterY - startStarCenterY, endStarCenterX - startStarCenterX) * (176 / Math.PI);
 
             lineElement.style.width = `${distance}%`;
-            lineElement.style.transformOrigin = 'top left';
+            lineElement.style.transformOrigin = 'left';
             lineElement.style.transform = `rotate(${angle}deg)`;
             lineElement.style.left = `${startStarCenterX}%`;
             lineElement.style.top = `${startStarCenterY}%`;

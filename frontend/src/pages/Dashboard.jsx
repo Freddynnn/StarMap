@@ -20,9 +20,7 @@ function Dashboard({ user }) {
 
 
   return (
-    <Layout>
-      <NightSky user={user}/>
-    </Layout>
+    <NightSky user={user}/>
   );
 }
 
