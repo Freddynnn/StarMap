@@ -45,8 +45,8 @@ const NightSky = ({ user }) => {
             };
         
             const createRandomPosition = () => ({
-                top: `${(Math.random() * ((1800) / 1.5)) + 1800 / 8 - 150}px`,
-                left: `${(Math.random() * ((1707) / 2)) + 1707 / 4 - 180}px`,
+                top: `${((Math.random() * ((1800) / 1.5)) + 1800 / 8 - 150) * 200/1800}%`,
+                left: `${((Math.random() * ((1707) / 2)) + 1707 / 4 - 180) * 100/1707}%`,
             });
         
             const createUniquePosition = () => {
@@ -63,7 +63,7 @@ const NightSky = ({ user }) => {
         
             constellations.forEach((constellationData) => {
                 const width = '150px';
-                const height = '180px';
+                const height = '170px';
         
                 const newPosition = createUniquePosition();
                 console.log('Adding constellation at:', newPosition);

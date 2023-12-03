@@ -135,9 +135,9 @@ export function createConstellation(container, constellationData, navigate, widt
 
             const distance = Math.sqrt(
                 Math.pow(endStarCenterX - startStarCenterX, 2) + Math.pow(endStarCenterY - startStarCenterY, 2)
-            ) * 1.05;
+            ) * 1.081;
 
-            const angle = Math.atan2(endStarCenterY - startStarCenterY, endStarCenterX - startStarCenterX) * (176 / Math.PI);
+            const angle = Math.atan2(endStarCenterY - startStarCenterY, endStarCenterX - startStarCenterX) * ( 176 / Math.PI);
 
             lineElement.style.width = `${distance}%`;
             lineElement.style.transformOrigin = 'left';
@@ -153,9 +153,17 @@ export function createConstellation(container, constellationData, navigate, widt
     //set the dimensions and position of the constellations
     constellation.style.width = width;
     constellation.style.height = height;
-    constellation.style.top = top;
-    constellation.style.left = left;
-
+    
+    if (isNightSky && constellationData.pos){
+        constellation.style.top = `${constellationData.pos[0]}%`;
+        constellation.style.left = `${constellationData.pos[1]}%`;
+    } else {
+        constellation.style.top = top;
+        constellation.style.left = left;
+    }
+    
+      
+    
     // for the nightsky section, add the hover growth and click redirect
     if (isNightSky) {
 
@@ -175,8 +183,8 @@ export function createConstellation(container, constellationData, navigate, widt
 
             constellation.style.width = `${newWidth}px`;
             constellation.style.height = `${newHeight}px`;
-            constellation.style.top = `${currentTop - sizeChangeY}px`;
-            constellation.style.left = `${currentLeft - sizeChangeX}px`;
+            constellation.style.top = `${currentTop - sizeChangeY * 100/1800}%`;
+            constellation.style.left = `${currentLeft - sizeChangeX * 100/1707}%`;
 
             nameDisplay.style.opacity = 1;
             linesDisplay.style.opacity = 0.7;
@@ -195,8 +203,8 @@ export function createConstellation(container, constellationData, navigate, widt
 
             constellation.style.width = `${newWidth}px`;
             constellation.style.height = `${newHeight}px`;
-            constellation.style.top = `${currentTop - sizeChangeY}px`;
-            constellation.style.left = `${currentLeft - sizeChangeX}px`;
+            constellation.style.top = `${currentTop - sizeChangeY* 100/1800}%`;
+            constellation.style.left = `${currentLeft - sizeChangeX* 100/1707}%`;
 
             nameDisplay.style.opacity = 0;
             linesDisplay.style.opacity = 0.2;

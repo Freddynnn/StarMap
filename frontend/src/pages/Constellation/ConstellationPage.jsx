@@ -100,7 +100,7 @@ function ConstellationPage() {
 
     const initializeStars = (skyContainer) => {
         for (let i = 0; i < 200; i++) {
-        createStar(skyContainer);
+            createStar(skyContainer);
         }
     };
 
