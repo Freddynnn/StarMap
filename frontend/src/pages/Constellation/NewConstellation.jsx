@@ -55,9 +55,14 @@ function NewConstellation({ user }) {
                         .map((num) => parseFloat(num.trim()))
                 );
     
+            const parsedPos = formData.pos
+                .split(',')
+                .map((num) => parseFloat(num.trim()));
+    
             const newFormData = {
                 ...formData,
                 stars: parsedStars,
+                pos: parsedPos,
                 // Use formData.lines directly without parsing
             };
     
@@ -141,7 +146,7 @@ function NewConstellation({ user }) {
                     const newStar = [x.toFixed(1), y.toFixed(1), randomSize.toFixed(1)];
                 
                     // Only draw lines if isLining is true and there is a previous star
-                    const newLines = isLining && prevFormData.stars.length > 1
+                    const newLines = isLining && prevFormData.stars.length > 0
                         ? [...prevFormData.lines, [prevFormData.stars.length - 1, prevFormData.stars.length]]
                         : prevFormData.lines;
                 
@@ -251,7 +256,7 @@ function NewConstellation({ user }) {
                             name='pos'
                             value={formData.pos}
                             onChange={handleInputChange}
-                            placeholder='top, left i.e. 20, 113'
+                            placeholder='top(10-160), left(10-85) i.e. 110, 40'
                         />
                     </div> 
                    
