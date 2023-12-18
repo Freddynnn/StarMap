@@ -22,6 +22,9 @@ const constellationSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
+    },
+    pos: {
+        type: [Number],
     }
 });
 

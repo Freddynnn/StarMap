@@ -4,7 +4,6 @@
     position: absolute;
     background-color: rgb(229, 221, 177);
     border-radius: 50%;
-    
     animation: shimmer 1.5s infinite alternate, shake 1.5s infinite alternate; /* Combine animations */
 }
 

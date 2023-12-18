@@ -6,6 +6,7 @@
     display: flex;
     justify-content: space-around;
     height: 87.9vh;
+    position: relative;
     /* overflow: hidden; */
 }
 
@@ -47,8 +48,8 @@
 
 /* DRAWING STYLES */
 .constellation-draw {
-    width: 50%;
-    height: 90%;
+    width: 644px;
+    height: 730px;
     margin: 2%;
     box-sizing: border-box;
     padding: 20px; 
@@ -69,7 +70,7 @@
     user-select: none;
     color: grey;
     position: absolute;
-    width: 10%;
+    width: 12%;
     height: 12%;
     background-color: rgb(29, 27, 65);
     border: 3px solid rgba(187, 187, 187, 0.2);
@@ -78,7 +79,8 @@
     margin: 2%;
 }
 
-.draw-tools.drawing {
+.draw-tools.drawing, 
+.draw-tools.lining {
     color: white;
 }
 
@@ -159,7 +161,7 @@
     font-family: var(--font-family);
     font-size: 1.6rem;
     font-weight: bold;
-    width: 650px;
+    width: 630px;
     height: 450px; 
 }
 

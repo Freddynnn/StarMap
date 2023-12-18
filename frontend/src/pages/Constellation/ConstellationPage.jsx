@@ -53,6 +53,8 @@ function ConstellationPage() {
         name: constellation.name || '',
         stars: constellation.stars || [],
         description: constellation.description || '',
+        lines: constellation.lines || '',
+
         });
     };
 

@@ -37,8 +37,8 @@ const getConstellationByID = async (req, res) => {
 
 // Function to add a new constellation to the database
 const createConstellation = async (req, res) => {
-    const { name, description, stars, lines, userID } = req.body;
-    const newConstellation = new Constellation({ name, description, stars, lines, userID });
+    const { name, description, stars, lines, userID, pos } = req.body;
+    const newConstellation = new Constellation({ name, description, stars, lines, userID, pos });
 
     // TODO: for images associated with constellations
     const fileName = req.file != null ? req.file.filename : null;

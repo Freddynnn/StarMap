@@ -79,7 +79,7 @@ export function createShootingStar(container) {
         shootingStar.remove();
 
         // Create a new shooting star
-        setTimeout(() => createShootingStar(container), Math.random() * 15000);
+        setTimeout(() => createShootingStar(container), Math.random() * 5000);
     });
 }
 
@@ -161,6 +161,9 @@ export function createConstellation(container, constellationData, navigate, widt
         constellation.style.top = top;
         constellation.style.left = left;
     }
+
+    // constellation.style.top = top;
+    // constellation.style.left = left;
     
       
     

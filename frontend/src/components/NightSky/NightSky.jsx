@@ -84,7 +84,8 @@ const NightSky = ({ user }) => {
             
         } else {
             initializeConstellations();
-            setTimeout(() => createShootingStar(skyContainer), Math.random() * 15000);
+            setTimeout(() => createShootingStar(skyContainer), Math.random() * 10000);
+            setTimeout(() => createShootingStar(skyContainer), Math.random() * 10000);
             initializeStars();
             // createMoon(constellationsContainer);
             

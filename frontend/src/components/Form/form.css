@@ -1,7 +1,7 @@
 /* General form container styles */
 .form-container {
     text-align: center;
-    width: 60%;
+    width: 700px;
     margin: 0 auto;
     margin-top: 2%;
     padding: 2rem;
@@ -28,6 +28,7 @@
     margin: 1rem auto;
     width: 100%;
     text-align: center;
+    color: black;
     
 }
 

@@ -47,6 +47,18 @@ const EditConstellation = ({ isEditMode, editedConstellation, handleEditInputCha
               />
             </div>
 
+            <div className="input-label-pair">
+              <label htmlFor="edit-lines" className="event-details-label">Lines:</label>
+              <input
+                value={editedConstellation.lines}
+                onChange={handleEditInputChange}
+                name="lines"
+                type="text"
+                id="edit-lines"
+                className="event-details-input"
+              />
+            </div>
+
             
 
 
