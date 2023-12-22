@@ -88,10 +88,12 @@ function NewConstellation({ user }) {
 
     const toggleDrawing = () => {
         setIsDrawing(!isDrawing);
+        // setIsLining(false);
     };
 
     const toggleLining = () => {
         setIsLining(!isLining);
+        // setIsDrawing(false);
     };
     
 
@@ -138,7 +140,7 @@ function NewConstellation({ user }) {
                 containerY >= 0 &&
                 containerY <= boundingRect.height - 20
             ) {
-                const randomSize = Math.random() * 2 + 4;
+                const randomSize = Math.random() * 2 + 2.3;
                 const x = (containerX / boundingRect.width) * 150 - randomSize / 2.5;
                 const y = (containerY / boundingRect.height) * 180 - randomSize / 2.5;
     
@@ -248,6 +250,16 @@ function NewConstellation({ user }) {
                             placeholder='[0.8, -0.25], [3.3, -0.5] ...'
                         />
                     </div> */}
+
+                    <div>
+                        <label>Lines:</label>
+                        <input
+                            name='lines'
+                            value={formData.lines}
+                            onChange={handleInputChange}
+                            placeholder='1,2,3,3,1,1...'
+                        />
+                    </div>
                     <div>
                         <label>
                             Constellation Position

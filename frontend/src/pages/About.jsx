@@ -18,14 +18,14 @@ const About = () => {
           </div>
           <div>
             <h4>
-              MAY THE STARS SERVE A REMINDER TO 
+              MAY THE STARS SERVE A REMINDER TO MY UNDYING LOVE AND DEDICATION TO YOU
 
               
             </h4>
           </div>
           <div>
             <h4>
-              I LOVE YOU 
+              I LOVE YOU JO
               
               
             </h4>

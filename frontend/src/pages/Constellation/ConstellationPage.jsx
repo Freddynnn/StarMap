@@ -50,11 +50,11 @@ function ConstellationPage() {
 
         // Map the constellation properties to the expected form fields
         setEditedConstellation({
-        name: constellation.name || '',
-        stars: constellation.stars || [],
-        description: constellation.description || '',
-        lines: constellation.lines || '',
-
+            name: constellation.name || '',
+            stars: constellation.stars || [],
+            description: constellation.description || '',
+            lines: constellation.lines || '',
+            // pos: constellation.pos || '',
         });
     };
 

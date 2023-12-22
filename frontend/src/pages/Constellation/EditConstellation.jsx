@@ -59,10 +59,22 @@ const EditConstellation = ({ isEditMode, editedConstellation, handleEditInputCha
               />
             </div>
 
+            {/* <div className="input-label-pair">
+              <label htmlFor="edit-lines" className="event-details-label">Pos:</label>
+              <input
+                value={editedConstellation.pos}
+                onChange={handleEditInputChange}
+                name="pos"
+                type="text"
+                id="edit-pos"
+                className="event-details-input"
+              />
+            </div> */}
+
             
 
 
-            <Link to='/profile'>
+            <Link to='/dashboard'>
               <Button className="event-details-button" onClick={handleEditSubmit}>
                 SAVE
               </Button>

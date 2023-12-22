@@ -9,7 +9,7 @@ export function createStar(container, isNightSky = false) {
     star.style.animationDelay = randomDelay;
 
     // Randomize the size of the stars
-    const size = Math.random() * 3 + 1;
+    const size = Math.random() * 2 + 2;
     star.style.width = `${size}px`;
     star.style.height = `${size}px`;
 
@@ -190,7 +190,7 @@ export function createConstellation(container, constellationData, navigate, widt
             constellation.style.left = `${currentLeft - sizeChangeX * 100/1707}%`;
 
             nameDisplay.style.opacity = 1;
-            linesDisplay.style.opacity = 0.7;
+            linesDisplay.style.opacity = 0.8;
         });
 
         constellation.addEventListener('mouseleave', () => {
@@ -210,7 +210,7 @@ export function createConstellation(container, constellationData, navigate, widt
             constellation.style.left = `${currentLeft - sizeChangeX* 100/1707}%`;
 
             nameDisplay.style.opacity = 0;
-            linesDisplay.style.opacity = 0.2;
+            linesDisplay.style.opacity = 0.3;
         });
 
         constellation.addEventListener('click', () => {

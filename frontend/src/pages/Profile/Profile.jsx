@@ -93,10 +93,11 @@ function Profile({ user, logOut }) {
         <div className='profile-container'>
           <div className="info">
             <h1>{user.username}</h1>
-            
-            <h2>Email Address: {user.email}</h2>
 
-            {/* <h2>First Name: {user.firstName}</h2>
+            <h2>EVEN LONG AFTER THEY FADE HERE,</h2>
+            <h2> THESE STARS WILL SHINE FOREVER IN MY HEART</h2>
+            {/* <h2>Email Address: {user.email}</h2>
+            <h2>First Name: {user.firstName}</h2>
             <h2>Last Name: {user.lastName}</h2>
             <h2>Phone: {user.phone}</h2> */}
           </div>
@@ -106,7 +107,7 @@ function Profile({ user, logOut }) {
               <Button>CHANGE PASSWORD</Button>
             </Link> */}
             <Button onClick={logOut}>LOGOUT</Button>
-            <Button onClick={handleDeleteAccount}>DELETE ACCOUNT</Button>
+            {/* <Button onClick={handleDeleteAccount}>DELETE ACCOUNT</Button> */}
           </section>
         </div>
       )}
