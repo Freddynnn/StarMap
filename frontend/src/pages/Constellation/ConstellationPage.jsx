@@ -150,13 +150,13 @@ function ConstellationPage() {
                     
                     <br />
                     <div className='constellation-buttons'>
-                        <Button onClick={handleEditClick}>
+                        {/* <Button onClick={handleEditClick}>
                             EDIT
                         </Button>
 
                         <Button onClick={handleDeleteClick}>
                             DELETE
-                        </Button>
+                        </Button> */}
 
                         <Button onClick={handleReturnClick}>
                             RETURN

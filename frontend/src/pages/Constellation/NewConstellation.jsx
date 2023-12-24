@@ -140,7 +140,7 @@ function NewConstellation({ user }) {
                 containerY >= 0 &&
                 containerY <= boundingRect.height - 20
             ) {
-                const randomSize = Math.random() * 2 + 2.3;
+                const randomSize = Math.random() * 2 + 2;
                 const x = (containerX / boundingRect.width) * 150 - randomSize / 2.5;
                 const y = (containerY / boundingRect.height) * 180 - randomSize / 2.5;
     
