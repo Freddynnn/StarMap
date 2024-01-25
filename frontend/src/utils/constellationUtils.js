@@ -1,4 +1,29 @@
 // constellationUtils.js
+export const handleHover = (element, hoverGrowth, nameOpacity, lineOpacity) => {
+    const currentWidth = parseFloat(element.style.width);
+    const currentHeight = parseFloat(element.style.height);
+    const currentTop = parseFloat(element.style.top);
+    const currentLeft = parseFloat(element.style.left);
+
+    const newWidth = currentWidth + (currentWidth * (hoverGrowth / 100));
+    const newHeight = currentHeight + (currentHeight * (hoverGrowth / 100));
+    const sizeChangeX = (newWidth - currentWidth) / 2;
+    const sizeChangeY = (newHeight - currentHeight) / 2;
+
+    element.style.width = `${newWidth}px`;
+    element.style.height = `${newHeight}px`;
+    element.style.top = `${currentTop - sizeChangeY * 100 / 1800}%`;
+    element.style.left = `${currentLeft - sizeChangeX * 100 / 1707}%`;
+
+    if (element.classList.contains('constellation')) {
+        // Apply specific styles for constellations
+        const nameDisplay = element.querySelector('.constellation-name');
+        const linesDisplay = element.querySelector('.constellation-lines');
+        nameDisplay.style.opacity = nameOpacity;
+        linesDisplay.style.opacity = lineOpacity;
+    }
+};
+
 
 // function for creating star and adding it to a container
 export function createStar(container, isNightSky = false) {
@@ -17,6 +42,26 @@ export function createStar(container, isNightSky = false) {
     star.style.left = `${Math.random() * 100}%`;
 
     container.appendChild(star);
+
+    // if (!isNightSky) {
+    //     // Attach hover effect for stars
+    //     star.addEventListener('mouseenter', () => {
+    //         handleHover(star, 20, 1); // You can adjust the hover growth and opacity values
+    //     });
+
+    //     star.addEventListener('mouseleave', () => {
+    //         handleHover(star, -20, 0.3); // You can adjust the hover growth and opacity values
+    //     });
+
+    //     // Add a click event listener to select the star
+    //     // star.addEventListener('click', () => {
+    //     //     const starIndex = findSelectedStarIndex(parseFloat(star.style.left), parseFloat(star.style.top));
+    //     //     if (starIndex !== -1) {
+    //     //         // Handle star selection (you can delete it or connect to another star)
+    //     //         console.log('Selected star at index:', starIndex);
+    //     //     }
+    //     // });
+    // }
 }
 
 
@@ -169,55 +214,21 @@ export function createConstellation(container, constellationData, navigate, widt
     
     // for the nightsky section, add the hover growth and click redirect
     if (isNightSky) {
-
         const hoverGrowth = 5;
-        constellation.style.cursor = 'pointer';        
-        
+        constellation.style.cursor = 'pointer';
+    
         constellation.addEventListener('mouseenter', () => {
-            const currentWidth = parseFloat(constellation.style.width);
-            const currentHeight = parseFloat(constellation.style.height);
-            const currentTop = parseFloat(constellation.style.top);
-            const currentLeft = parseFloat(constellation.style.left);
-
-            const newWidth = currentWidth + (currentWidth * (hoverGrowth / 100));
-            const newHeight = currentHeight + (currentHeight * (hoverGrowth / 100));
-            const sizeChangeX = (newWidth - currentWidth) / 2;
-            const sizeChangeY = (newHeight - currentHeight) / 2;
-
-            constellation.style.width = `${newWidth}px`;
-            constellation.style.height = `${newHeight}px`;
-            constellation.style.top = `${currentTop - sizeChangeY * 100/1800}%`;
-            constellation.style.left = `${currentLeft - sizeChangeX * 100/1707}%`;
-
-            nameDisplay.style.opacity = 1;
-            linesDisplay.style.opacity = 0.8;
+            handleHover(constellation, hoverGrowth, 0.8, 0.8);
         });
-
+    
         constellation.addEventListener('mouseleave', () => {
-            const currentWidth = parseFloat(constellation.style.width);
-            const currentHeight = parseFloat(constellation.style.height);
-            const currentTop = parseFloat(constellation.style.top);
-            const currentLeft = parseFloat(constellation.style.left);
-
-            const newWidth = currentWidth - (currentWidth * (hoverGrowth / 100));
-            const newHeight = currentHeight - (currentHeight * (hoverGrowth / 100));
-            const sizeChangeX = (newWidth - currentWidth) / 2;
-            const sizeChangeY = (newHeight - currentHeight) / 2;
-
-            constellation.style.width = `${newWidth}px`;
-            constellation.style.height = `${newHeight}px`;
-            constellation.style.top = `${currentTop - sizeChangeY* 100/1800}%`;
-            constellation.style.left = `${currentLeft - sizeChangeX* 100/1707}%`;
-
-            nameDisplay.style.opacity = 0;
-            linesDisplay.style.opacity = 0.3;
+            handleHover(constellation, -hoverGrowth, 0, 0.3);
         });
-
+    
         constellation.addEventListener('click', () => {
-            const constellationId = constellationData._id; 
+            const constellationId = constellationData._id;
             navigate('/constellation/' + constellationId);
         });
-
     }
 
     container.appendChild(constellation);

@@ -10,6 +10,7 @@ const NightSky = ({ user }) => {
     const navigate = useNavigate();
     const [constellations, setConstellations] = useState([]);
     const [constellationsFetched, setConstellationsFetched] = useState(false);
+    const [editMode, setEditMode] = useState(false);
 
     useEffect(() => {
         const skyContainer = document.getElementById('skyContainer');
@@ -74,6 +75,9 @@ const NightSky = ({ user }) => {
             });
         };
         
+        const toggleEditMode = () => {
+            setEditMode(!editMode);
+        };
         
         
 

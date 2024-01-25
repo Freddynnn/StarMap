@@ -80,7 +80,8 @@
 }
 
 .draw-tools.drawing, 
-.draw-tools.lining {
+.draw-tools.lining,
+.draw-tools.selecting {
     color: white;
 }
 
@@ -101,9 +102,12 @@
 }
 
 
+
+
 .drawing-text:hover,
 .drawing-clear:hover,
-.drawing-line:hover {
+.drawing-line:hover,
+.drawing-select:hover {
     color: white; /* Color on hover */
 }
 

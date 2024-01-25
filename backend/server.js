@@ -15,8 +15,16 @@ if (process.env.NODE_ENV !== 'production'){
   require('dotenv').config();
 }
 
-app.use(cors());
-app.use(express.json())
+// Enable CORS for development
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://ftfiiilsbvlrqeolrdefqxii.vercel.app/'|| 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
+// Parse JSON requests
+app.use(express.json());
 
 
 // Connect to the MongoDB database using Mongoose
