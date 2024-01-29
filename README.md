@@ -43,8 +43,8 @@ Create intricate custom constellations via this interactive and imaginative appr
 
 plot each star and their respective connecting lines via the interactive drawing board, and fill their log's information in to truly personalize the constellations.
 <div style="display: flex; justify-content: space-around;">
-    <img src="public/media/ConstellationDrawing.gif" alt="Constellation Drawing" width="450" height="350">
-    <img src="public/media/DrawingInfo.gif" alt="Constellation Drawing" width="450" height="350">
+    <img src="public/media/ConstellationDrawing.gif" alt="Constellation Drawing" width="420" height="350">
+    <img src="public/media/DrawingInfo.gif" alt="Constellation Drawing" width="420" height="350">
 </div>
 <br>
 
