@@ -136,7 +136,7 @@
 .constellation-info textarea {
     font-family: var(--font-family);
     font-size: 1.6rem;
-    width: 60%;
+    width: 100%;
     height: 200px; 
     background-color: transparent;
     color: white;
