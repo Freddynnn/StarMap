@@ -42,26 +42,6 @@ export function createStar(container, isNightSky = false) {
     star.style.left = `${Math.random() * 100}%`;
 
     container.appendChild(star);
-
-    // if (!isNightSky) {
-    //     // Attach hover effect for stars
-    //     star.addEventListener('mouseenter', () => {
-    //         handleHover(star, 20, 1); // You can adjust the hover growth and opacity values
-    //     });
-
-    //     star.addEventListener('mouseleave', () => {
-    //         handleHover(star, -20, 0.3); // You can adjust the hover growth and opacity values
-    //     });
-
-    //     // Add a click event listener to select the star
-    //     // star.addEventListener('click', () => {
-    //     //     const starIndex = findSelectedStarIndex(parseFloat(star.style.left), parseFloat(star.style.top));
-    //     //     if (starIndex !== -1) {
-    //     //         // Handle star selection (you can delete it or connect to another star)
-    //     //         console.log('Selected star at index:', starIndex);
-    //     //     }
-    //     // });
-    // }
 }
 
 
@@ -131,7 +111,7 @@ export function createShootingStar(container) {
 
 
 // function for creating 
-export function createConstellation(container, constellationData, navigate, width, height, top, left,  isNightSky = false) {
+export function createConstellation(container, constellationData, navigate, width, height, top, left, isNightSky = false) {
     const constellation = document.createElement('div');
     constellation.className = 'constellation';
     constellation.setAttribute('data-name', constellationData.name);
@@ -152,11 +132,11 @@ export function createConstellation(container, constellationData, navigate, widt
 
         const randomDelay = Math.random() + 's';
         starElement.style.animationDelay = randomDelay;
-        
+
         starElement.style.width = isNightSky ? `${starSize}px` : `${starSize * 3.5}px`;
         starElement.style.height = isNightSky ? `${starSize}px` : `${starSize * 3.5}px`;
-        starElement.style.left = `${starX * (100/150)}%`;
-        starElement.style.top = `${starY * (100/180)}%`;
+        starElement.style.left = `${starX * (100 / 150)}%`;
+        starElement.style.top = `${starY * (100 / 180)}%`;
 
         constellation.appendChild(starElement);
     });
@@ -172,17 +152,31 @@ export function createConstellation(container, constellationData, navigate, widt
 
             lineElement.style.height = isNightSky ? '2px' : '3px';
 
+            // Log values for debugging
+            console.log('startStar:', startStar);
+            console.log('endStar:', endStar);
+
             const startStarCenterX = ((startStar[0] + startStar[2] / 2) * 100 / 150);
             const startStarCenterY = ((startStar[1] + startStar[2] / 2) * 100 / 180);
 
             const endStarCenterX = ((endStar[0] + endStar[2] / 2) * 100 / 150);
             const endStarCenterY = ((endStar[1] + endStar[2] / 2) * 100 / 180);
 
+            // Log calculated values for debugging
+            console.log('startStarCenterX:', startStarCenterX);
+            console.log('startStarCenterY:', startStarCenterY);
+            console.log('endStarCenterX:', endStarCenterX);
+            console.log('endStarCenterY:', endStarCenterY);
+
             const distance = Math.sqrt(
                 Math.pow(endStarCenterX - startStarCenterX, 2) + Math.pow(endStarCenterY - startStarCenterY, 2)
             ) * 1.081;
 
-            const angle = Math.atan2(endStarCenterY - startStarCenterY, endStarCenterX - startStarCenterX) * ( 176 / Math.PI);
+            const angle = Math.atan2(endStarCenterY - startStarCenterY, endStarCenterX - startStarCenterX) * (176 / Math.PI);
+
+            // Log calculated values for debugging
+            console.log('distance:', distance);
+            console.log('angle:', angle);
 
             lineElement.style.width = `${distance}%`;
             lineElement.style.transformOrigin = 'left';
@@ -194,12 +188,11 @@ export function createConstellation(container, constellationData, navigate, widt
         });
     }
 
-
     //set the dimensions and position of the constellations
     constellation.style.width = width;
     constellation.style.height = height;
-    
-    if (isNightSky && constellationData.pos){
+
+    if (isNightSky && constellationData.pos) {
         constellation.style.top = `${constellationData.pos[0]}%`;
         constellation.style.left = `${constellationData.pos[1]}%`;
     } else {
@@ -209,22 +202,20 @@ export function createConstellation(container, constellationData, navigate, widt
 
     // constellation.style.top = top;
     // constellation.style.left = left;
-    
-      
-    
+
     // for the nightsky section, add the hover growth and click redirect
     if (isNightSky) {
         const hoverGrowth = 5;
         constellation.style.cursor = 'pointer';
-    
+
         constellation.addEventListener('mouseenter', () => {
             handleHover(constellation, hoverGrowth, 0.8, 0.8);
         });
-    
+
         constellation.addEventListener('mouseleave', () => {
             handleHover(constellation, -hoverGrowth, 0, 0.3);
         });
-    
+
         constellation.addEventListener('click', () => {
             const constellationId = constellationData._id;
             navigate('/constellation/' + constellationId);
@@ -232,4 +223,5 @@ export function createConstellation(container, constellationData, navigate, widt
     }
 
     container.appendChild(constellation);
+    return constellation;
 }

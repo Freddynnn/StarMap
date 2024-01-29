@@ -54,10 +54,10 @@ const NightSky = ({ user }) => {
                 let newPosition;
                 do {
                     newPosition = createRandomPosition();
-                    console.log('Generated position:', newPosition);
+                    // console.log('Generated position:', newPosition);
                 } while (createdConstellations.some((existing) => isOverlapping(existing, newPosition)));
         
-                console.log('All positions:', createdConstellations); // Add this log
+                // console.log('All positions:', createdConstellations); // Add this log
         
                 return newPosition;
             };
@@ -67,7 +67,7 @@ const NightSky = ({ user }) => {
                 const height = '170px';
         
                 const newPosition = createUniquePosition();
-                console.log('Adding constellation at:', newPosition);
+                // console.log('Adding constellation at:', newPosition);
         
                 createdConstellations.push(newPosition);
         

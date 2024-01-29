@@ -60,6 +60,7 @@
     border-radius: 2%;
 }
 
+
 .drawing {
     cursor: crosshair;
 }
@@ -79,9 +80,15 @@
     margin: 2%;
 }
 
-.draw-tools.drawing, 
-.draw-tools.lining,
-.draw-tools.selecting {
+.draw-tools:active {
+    background-color: rgb(20, 18, 45); /* Darker background color */
+    border-color: rgba(150, 150, 150, 0.2); /* Darker border color */
+    color: rgb(255, 255, 255) /* text color */
+}
+
+.draw-tools.drawing:not(:active), 
+.draw-tools.lining:not(:active),
+.draw-tools.selecting:not(:active) {
     color: white;
 }
 
@@ -101,14 +108,9 @@
     font-size: 3rem;
 }
 
-
-
-
-.drawing-text:hover,
-.drawing-clear:hover,
-.drawing-line:hover,
-.drawing-select:hover {
-    color: white; /* Color on hover */
+.draw-tools:not(:active):hover {
+    
+    border: 3px solid rgba(255, 255, 255, 0.2);
 }
 
 
@@ -142,6 +144,14 @@
     border: none;
     outline: none;
     resize: none; /* Disable textarea resizing */
+}
+
+.constellation-info input {
+    font-family: var(--font-family);
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: rgb(41, 41, 41);
+    width: 80%;
 }
 
 
@@ -199,6 +209,9 @@
     display: flex;
     justify-content:space-evenly;
 }
+
+
+
 
 
 .constellation-puzzle {
