@@ -29,9 +29,11 @@ Note: The backend is already deployed, so you don't need to run it locally for t
 
 StarMap boasts the following key features:
 
-**Virtual Night Sky:** Design and explore your own virtual night sky by configuring the number of shimmering stars that litter the background, the speeds and frequencies at which shooting stars stream by, and even the layout of how your own personal constellations fill out the cosmos!
+**Virtual Night Sky:** 
+Design and explore your own virtual night sky by configuring the number of shimmering stars that litter the background, the speeds and frequencies at which shooting stars stream by, and even the layout of how your own personal constellations fill out the cosmos!
 
-**Custom Constellations:** Create intricate custom constellations via this interactive and imaginative approach to crafting your own cosmic patterns for your night sky.
+**Custom Constellations:** 
+Create intricate custom constellations via this interactive and imaginative approach to crafting your own cosmic patterns for your night sky.
 
 <div style="text-align: center;">
     <img src="public/media/DrawingPage.png" alt="Constellation Drawing" width="900">
@@ -41,8 +43,8 @@ StarMap boasts the following key features:
 
 plot each star and their respective connecting lines via the interactive drawing board, and fill their log's information in to truly personalize the constellations.
 <div style="display: flex; justify-content: space-around;">
-    <img src="public/media/ConstellationDrawing.gif" alt="Constellation Drawing" width="350">
-    <img src="public/media/DrawingInfo.gif" alt="Constellation Drawing" width="350">
+    <img src="public/media/ConstellationDrawing.gif" alt="Constellation Drawing" width="450" height="350">
+    <img src="public/media/DrawingInfo.gif" alt="Constellation Drawing" width="450" height="350">
 </div>
 <br>
 
@@ -50,7 +52,8 @@ plot each star and their respective connecting lines via the interactive drawing
 <!-- <img src="Public/ConstellationPage.png" alt="Constellation Drawing" width="900" > -->
 
 
-**Intuitive Interface:** Enjoy a user-friendly interfaces that make the constellation creation, integration and navigation processes smooth and seamless. This includes constellation hovering & highlighting: 
+**Intuitive Interface:** 
+Enjoy a user-friendly interfaces that make the constellation creation, integration and navigation processes smooth and seamless. This includes constellation hovering & highlighting: 
 <img src="public/media/Hovering.gif" alt="Constellation Drawing" width="800" >
 
 
@@ -100,6 +103,6 @@ List of technologies, frameworks, and libraries used in this project:
 
 
 ##License
-Specify the license under which your project is distributed.
+license under which  project is distributed.
 
 
